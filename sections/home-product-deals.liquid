@@ -1,0 +1,344 @@
+{% assign list_collection 	= section.settings.list_collection %}
+{% assign nav				= section.settings.owl_navigation  %}
+{% assign dot				= section.settings.owl_dot  %}
+{% assign margin			= section.settings.owl_margin  %}
+{% assign autoplay			= section.settings.owl_autoplay  %}
+{% assign autospeed			= section.settings.owl_autoplay_speed  %}
+{% assign speed				= section.settings.owl_speed  %}
+{% assign column1			= section.settings.column1  %}
+{% assign column2 			= section.settings.column2  %}
+{% assign column3 			= section.settings.column3  %}
+{% assign column4 			= section.settings.column4  %}
+{% assign column5 			= section.settings.column5  %}
+{% assign row 				= section.settings.row      %}
+{% assign limit 			= section.settings.limit    %}
+{% assign show_container	= section.settings.show_container    %}
+
+<div class="widget-deals-carousel">
+  <div class="{% if show_container %}container_full{% else %}container{% endif %}">
+    <div class="wrap-bg">
+      <div class="home-title style2"><h3>{{ section.settings.title1 }}</h3></div>
+      <div class="widget-content">
+        <div class="products-listing grid">
+          <div class="product-layout block-content{% if row == 2 %} row2 {% endif %}">
+            <div class="ss-carousel ss-owl">
+              <div class="owl-carousel" 
+                   data-dots		="{{ dot }}" 
+                   {% if settings.enable_rtl %}data-rtl="true"{% endif %}
+                   data-nav		="{{ nav }}" 
+                   data-margin		="{{ margin }}"
+                   data-autoplay	="{{ autoplay }}" 
+                   data-autospeed	="{{ autospeed }}" 
+                   data-speed		="{{ speed }}"
+                   data-column1	="{{ column1 }}" 
+                   data-column2	="{{ column2 }}" 
+                   data-column3	="{{ column3 }}" 
+                   data-column4	="{{ column4 }}" 
+                   data-column5	="{{ column5 }}">
+                {% for product in collections[list_collection].products limit:limit %}
+
+                {% assign col = forloop.index | modulo:section.settings.row  %}
+                {% assign col3 = forloop.index0 | modulo:section.settings.row   %}
+                {% assign col2 = forloop.index %} 
+
+                {% if col3 == 0 or col2 == 1  %}
+                <div class="item">
+                  {% endif %}
+                  {% include 'product-deal-index' %}
+                  {% if col == 0 or forloop.last  %}
+                </div>
+                {% endif %}
+
+
+                {% else %}
+                {% for product in (1..limit) %}
+                {% assign col = forloop.index | modulo:section.settings.row  %}
+                {% assign col3 = forloop.index0 | modulo:section.settings.row   %}
+                {% assign col2 = forloop.index %} 
+
+                {% if col3 == 0 or col2 == 1  %}
+                <div class="item">
+                  {% endif %}
+                  <div class="product-item-container">
+					<div class="row">
+     					<div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="left-block">
+                            <a href="#" class="grid-view-item__link">
+                              <div class="grid-view-item__image">
+                                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                                {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                              </div>
+                            </a>
+                          </div>
+                      </div>
+                      <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="right-block ">
+                      <div class="caption">
+                        <h4 class="title-product"><strong>Your Product's Demo {{ forloop.index }}</strong></h4>
+                        <div class="price"><span class="price-new">$999.00 </span></div>
+                      </div>
+
+                    </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% if col == 0 or forloop.last  %}
+                </div>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+"name": "Home Products Deals",
+"class": "home-section",
+"settings":[
+{
+"type": "header",
+"content": "General Settings"
+},
+{
+"type": "checkbox",
+"id": "show_container",
+"label": "Full width",
+"default": true
+},
+
+{
+"type": "text",
+"id": "title1",
+"label": "Title"
+},
+{
+"type": "collection",
+"id": "list_collection",
+"label": "Select Collection"
+},
+{
+"type": "text",
+"id": "image_size",
+"label": "Image size",
+"default": "270x384",
+"info": "[Size parameters](https://help.shopify.com/themes/liquid/filters/url-filters#size-parameters)"
+},
+{
+"type": "header",
+"content": "Owl Deals Settings"
+},
+{
+"type": "select",
+"id": "column1",
+"label": "#Column 1",
+"default": "4",
+"info": "For Large desktops have screen > 1200px",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+},
+{
+"value": "6",
+"label": "6"
+}
+]
+},
+{
+"type": "select",
+"id": "column2",
+"label": "#Column 2",
+"default": "3",
+"info": "For Tablets have screen 992px to 1199px.",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column3",
+"label": "#Column 3",
+"info": "For Tablets have screen 768px to 991px.",
+"default": "2",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column4",
+"label": "#Column 4",
+"default": "2",
+"info": "For Smartphones landscape have screen 568px to 767px",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column5",
+"label": "#Column 5",
+"default": "1",
+"info": "For Smartphones have screen 320px to 567px.",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+}
+]
+},
+{
+"type": "select",
+"id": "row",
+"label": "Sellect Row",
+"default": "1",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+}
+]
+},
+{
+"type": "text",
+"id": "limit",
+"label": "Limit Item",
+"default": "8"
+},
+{
+"type": "checkbox",
+"id": "owl_navigation",
+"label": "Show navigation",
+"default": true
+},
+{
+"type": "checkbox",
+"id": "owl_dot",
+"label": "Show dot",
+"default": true
+},
+{
+"type": "text",
+"id": "owl_margin",
+"label": "Margin Item",
+"default": "30"
+},
+{
+"type": "checkbox",
+"id": "owl_autoplay",
+"label": "Owl Auto Play",
+"default": false
+},
+{
+"type": "text",
+"id": "owl_autoplay_speed",
+"label": "Owl Auto Play speed",
+"info": "Default: 10000(ms)",
+"default": "10000"
+},
+{
+"type": "text",
+"id": "owl_speed",
+"label": "Owl Speed",
+"info": "Slide/Fade animation speed",
+"default": "300"
+}
+],
+"presets": [
+{
+"name": "Home Products Deals",
+"category": "Product",
+"settings": {
+"title1": "Deals Carousel",
+"list_collection": "frontpage"
+}
+}
+]
+}
+{% endschema %}

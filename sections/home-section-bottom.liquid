@@ -1,0 +1,346 @@
+{% assign limit1 			= section.settings.limit1    %}
+{% assign limit2 			= section.settings.limit2    %}
+{% assign list_collection 	= section.settings.collection %}
+
+<div id="ss_testimonials_slider_{{section.id}}" class="section-bottom">
+  <div class="container">
+    <div class="wrap-bg">
+      <div class="row">
+
+        <div class="collection col-xl-4 col-lg-6 col-sm-12 col-xxs-6 col-xs-12">
+          <div class="wrap">	
+            <h3 class="title-blog">{{ section.settings.title2 }}</h3>
+            {% for product in collections[list_collection].products limit:limit2 %}
+            <div class="item-inner product-thumb transition">
+              {% include 'product-item' %}
+            </div>
+            {% else %}
+            {% for product in (1..4) %}
+            <div class="grid-item">
+              <div class="product-item no-product row">
+                <a href="#" class="grid-view-item__link col-md-3">
+                  <div class="grid-view-item__image">
+                    {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+                    {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                  </div>              
+                </a>
+                <div class="product-info a-left col-md-9">
+                  <div class="product-title"><strong>Your Product's Demo {{ forloop.index }}</strong></div>
+                  <span> $999.00 </span>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endfor %}
+          </div> 
+        </div>   
+        <div class="blog-list col-xl-4 col-lg-6 col-sm-12 col-xxs-6 col-xs-12">     
+          <div class="wrap">	
+            <h3 class="title-blog">{{ section.settings.title1 }}</h3>
+            <div class="blogs">
+              {% for article in blogs[section.settings.blog].articles limit : limit1 %}
+              <div class="item-inner item-blogs product-thumb transition">
+                {% include 'blog-item' %}
+              </div>
+              {% else %}
+              {% for product in (1..4) %}
+              <div class="grid-item">
+                <div class="product-item no-product row">
+                  <a href="#" class="grid-view-item__link col-md-3">
+                    <div class="grid-view-item__image">
+                      <span>Day</span>
+                      <h4 class="no-margin">Moth</h4>
+                    </div>              
+                  </a>
+                  <div class="product-info a-left col-md-9">
+                    <div class="product-title"><strong>Title artilce {{ forloop.index }}</strong></div>
+                    <span> Description article </span>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              {% endfor %}
+              <div class="readmore-btn"><a href="{{ section.settings.link }}">{{ section.settings.read }}</a></div>
+            </div>
+          </div>                 
+        </div>
+        <div class="testimonial-slider owl-style2 col-xl-4 col-lg-12 col-sm-12 col-xs-12">
+          <div class="wrap-testimonial wrap">
+            <h3 class="title-blog">{{ section.settings.title3 }}</h3>
+            <div class="ss-carousel ss-owl">
+              <div class="owl-carousel" 
+                   data-nav		="false" 
+                   data-dots		="true" 
+                   data-margin		="0"
+                   data-autoplay	="false" 
+                   data-autospeed	="333" 
+                   data-speed		="333"
+                   data-column1	="1" 
+                   data-column2	="1" 
+                   data-column3	="1" 
+                   data-column4	="1" 
+                   data-column5	="1">
+                {% for block in section.blocks %}
+                {% assign col = forloop.index | modulo:1  %}
+                {% assign col3 = forloop.index0 | modulo:1   %}
+                {% assign col2 = forloop.index %} 
+                {% if col3 == 0 or col2 == 1  %}
+                <div class="item">
+                  {% endif %}
+                  {% case block.type %}
+                  {% when 'testimonial' %}  
+                  <div class="item-client clearfix">
+                    <div class="client-image">
+                      {% if block.settings.image != blank %}
+                      <img class="img-responsive" alt="{{ block.settings.image.alt | default: shop.name }}" src="{{ block.settings.image | img_url:'139x139' }}" />
+                      {% else %}
+                      <img class="img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/139x139" />
+                      {% endif %}                 
+                    </div>
+                    <div class="client-info">
+
+                      {% if  block.settings.client_quote != '' %}
+                      <p class="client-quote">
+                        {{ block.settings.client_quote }}
+                      </p>
+                      {% else %}
+                      <p class="client-quote">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras tellus purus, rutrum quis enim in, aliquam dictum est. Fusce imperdiet…
+                      </p>
+                      {% endif %}  
+                      {% if  block.settings.client_name != '' %}
+                      <h4 class="client-name font-ct">{{ block.settings.client_name }}</h4>
+                      {% else %}
+                      <h4 class="client-name font-ct">Jane Doe - Stylish Manager</h4>
+                      {% endif %} 
+                    </div>         
+                  </div>
+                  {% endcase %}
+                  {% if col == 0 or forloop.last  %}
+                </div>
+                {% endif %}
+                {% endfor %} 		
+              </div></div>
+          </div>  
+          <div class="shop-info wrap">
+            <h3 class="title-blog">{{ section.settings.title4}}</h3>
+            <div class="shop-info-wrapper">
+              <ul class="info-list">
+                {% if section.settings.info_address != blank %}
+                <li class="address-info"><span class="tt-info">Address:</span> {{ section.settings.info_address }}</li>
+                {% endif %}
+                {% if section.settings.info_phone != blank %}
+                <li class="phone-info"><span class="tt-info">Phone number:</span> <a title="Phone number" href="tel:{{ section.settings.info_phone }}">{{ section.settings.info_phone }}</a></li>
+                {% endif %}
+                {% if section.settings.info_email != blank %}
+                <li class="email-info"><span class="tt-info">Email:</span> <a title="Email" href="mailto:{{ section.settings.info_email }}">{{ section.settings.info_email }}</a></li>
+                {% endif %}
+                {% if section.settings.info_open != blank %}
+                <li class="open-info"><span class="tt-info">Open hours:</span> {{ section.settings.info_open }}</li>
+                {% endif %}
+              </ul>	
+
+
+              <ul class="socials-footer">
+
+                {% if settings.social_facebook_link != blank %}
+                <li class="li-social facebook">
+                  <a title="Facebook" href="{{ social_facebook }}" target="_blank"> 
+                    <span class="fa fa-facebook icon-social"></span>
+                  </a>
+                </li>
+                {% endif %}	
+                {% if settings.social_twitter_link != blank %}
+                <li class="li-social twitter">
+                  <a title="Twitter" href="{{ social_twitter }}" target="_blank"> 
+                    <span class="fa fa-twitter icon-social"></span>
+                  </a>
+                </li>
+                {% endif %}	
+                {% if settings.social_google_link != blank %}
+                <li class="li-social google_plus">
+                  <a title="Google+" href="{{ social_google }}" target="_blank"> 
+                    <span class="fa fa-google-plus icon-social"></span>
+                  </a>
+                </li>
+                {% endif %}		
+                {% if settings.social_pinterest_link != blank %}	
+                <li class="li-social pinterest">
+                  <a title="Pinterest" href="{{ social_pinterest }}" target="_blank"> 
+                    <span class="fa fa-pinterest icon-social"></span>
+                  </a>
+                </li>
+                {% endif %}
+                {% if settings.social_instagram_link != blank %}	
+                <li class="li-social instagram">
+                  <a title="Instagram" href="{{ social_instagram }}" target="_blank"> 
+                    <span class="fa fa-instagram icon-social"></span>
+                  </a>
+                </li>
+                {% endif %}	
+              </ul>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+"name": "Home Testimonial - Blog",
+"class": "home-section clearfix",
+"settings": [
+{
+"type": "header",
+"content": "General Settings"
+},
+{
+"type": "header",
+"content": "Blog"
+},
+{
+"type": "text",
+"id": "title1",
+"label": "Title",
+"default": "News Update"
+},
+{
+"type": "text",
+"id": "limit1",
+"label": "Limit",
+"default": "2"
+},
+{
+"type": "blog",
+"id": "blog",
+"label": "Blog use:"
+},
+{
+"type": "text",
+"id": "read",
+"label": "label Read more",
+"default": "Read more"
+},
+{
+"type": "url",
+"id": "link",
+"label": "Link",
+"label": "Read link"
+},
+{
+"type": "header",
+"content": "Collection"
+},
+{
+"type": "text",
+"id": "title2",
+"label": "Title",
+"default": "Bestseller"
+},
+{
+"type": "collection",
+"id": "collection",
+"label": "Collection use:"
+},
+{
+"type": "text",
+"id": "limit2",
+"label": "Limit",
+"default": "2"
+},
+{
+"type": "header",
+"content": "Testimonial"
+},
+{
+"type": "text",
+"id": "title3",
+"label": "Title",
+"default": "testimonial"
+},
+{
+"type": "header",
+"content": "Shop Info"
+},
+{
+"type": "text",
+"id": "title4",
+"label": "Title",
+"default": "Shop Info"
+}
+,
+{
+"type": "text",
+"id": "info_address",
+"label": "Info Address"
+},
+{
+"type": "text",
+"id": "info_email",
+"label": "Info"
+},
+{
+"type": "text",
+"id": "info_phone",
+"label": "Info Email"
+},
+{
+"type": "text",
+"id": "info_open",
+"label": "Info Open"
+}
+],
+"blocks": [
+{
+"type": "testimonial",
+"name": "Testimonial Client",
+"settings": [
+{
+"type": "header",
+"content": "Client info"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Client image"
+},
+{
+"type": "textarea",
+"id": "client_quote",
+"label": "Client Message"
+},
+{
+"type": "text",
+"id": "client_name",
+"label": "Client Name"
+}
+
+]
+}
+]
+,
+"presets": [
+{
+"name": "Home Testimonial - Blog",
+"category": "Magentech",
+"blocks": [
+{
+"type": "testimonial"
+},{
+"type": "testimonial"
+},{
+"type": "testimonial"
+}
+]
+}
+]
+}
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}

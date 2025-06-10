@@ -1,0 +1,149 @@
+<div id="popup-newletter" class="popup-newletter show">
+  <div class="module main-newsleter-popup newsletter-wrappers ss_newletter_oca_popup" id="newsletter-wrappers" style="display: block;">
+    <div class="ss_newletter_custom_popup_bg popup_bg"></div> 
+    <div class="popup-wraper" style="width: {{ settings.ssnp_width }}px;">
+      <button title="Close" type="button" class="popup-close">×</button> 
+      <div class="ss-custom-popup ss-custom-oca-popup"> 
+
+        <div class="modcontent"> 
+           <div class="popup-title"><h4>{{ settings.ssnp_title }}</h4></div>
+          <div class="oca_popup" id="test-popup"
+               {% if settings.newsletter != blank %}
+               {% assign img_url = settings.newsletter | img_url: 'master' %}
+               style="background : url({{ img_url }}) no-repeat top right"
+               {% else %}	
+               style="background : #fff"
+               {% endif %}>
+            
+            <div class="popup-content">
+              <div class="wrap-info">
+               
+                <div class="short-description">{{ settings.ssnp_description }}</div>
+                {% if settings.newslettermodal_mailchimp %}
+                {% comment %}
+
+                MailChimp is the go-to newsletter service for Shopify.
+                Use the link below to find your MailChimp "form action"
+                and insert it in your site settings.
+
+                MailChimp newsletter integration and requirement:
+                - http://docs.shopify.com/support/configuration/store-customization/where-do-i-get-my-mailchimp-form-action
+
+                {% endcomment %}
+
+                {% assign form_action = settings.newsletter_formmodal_action %}
+                <form action="{{ form_action }}" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" class="formNewsletter clearfix">
+                  <div class="input-group password__input-group">
+                    <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'general.newsletter_form.newsletter_email' | t }}" name="EMAIL" id="mail" class="form-control" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}">
+                    <span class="input-group__btn">
+                      <button type="submit" class="btn newsletter__submit" name="commit" id="#Subscribe">
+                        <span class="newsletter__submit-text--large">{{ 'general.newsletter_form.submit' | t }}</span>
+                      </button>
+                    </span>
+                  </div>
+                </form>
+
+                {% endif %}	
+
+                {% if settings.ssnp_show_checkbox and settings.ssnp_checkbox_title != blank %}
+                <label class="hidden-popup">
+                  <input type="checkbox" value="1" name="hidden-popups">
+                  <span class="inline">&nbsp;&nbsp;{{ settings.ssnp_checkbox_title }}</span>
+                </label>
+                {% endif %}
+                <div class="socials-popup">
+                  <ul class="social-list">
+                    {% if settings.ssnp_show_facebook %}
+                    <li><a href="{{ settings.ssnp_link_facebook }}" title="title"><i class="fa fa-facebook"></i><span class="hidden">Facebook</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_twitter %}
+                    <li><a href="{{ settings.ssnp_link_twitter }}" title="title"><i class="fa fa-twitter"></i><span class="hidden">Twitter</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_googleplus %}
+                    <li><a href="{{ settings.ssnp_link_googleplus }}" title="title"><i class="fa fa-google-plus"></i><span class="hidden">Google</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_tumblr %}
+                    <li><a href="{{ settings.ssnp_link_tumblr }}" title="title"><i class="fa fa-tumblr"></i><span class="hidden">Tumblr</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_pinterest %}
+                    <li><a href="{{ settings.ssnp_link_pinterest }}" title="title"><i class="fa fa-pinterest"></i><span class="hidden">Pinterest</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_linkedin %}
+                    <li><a href="{{ settings.ssnp_link_linkedin }}" title="title"><i class="fa fa-linkedin"></i><span class="hidden">Linkedin</span></a></li>
+                    {% endif %}
+                    {% if settings.ssnp_show_instagram %}
+                    <li><a href="{{ settings.ssnp_show_instagram }}" title="title"><i class="fa fa-instagram"></i><span class="hidden">Instagram</span></a></li>
+                    {% endif %}
+                  </ul>
+                </div>
+              </div>
+            </div> 
+          </div>
+        </div>
+      </div> 
+    </div> 
+  </div>
+  <script>
+    jQuery(document).ready(function($) {
+      $(window).load(function () {
+        var check_cookie = getCookie("newsletter-wrapper");
+        if (check_cookie != '') {
+          $('#popup-newletter').hide();
+          $('#popup-newletter').removeClass('show');
+          return;
+        }
+        else {
+          $('#popup-newletter').show();
+          $('body').addClass('hidden-scorll');
+
+          $('input[name=\'hidden-popups\']').on('change', function(){
+
+            if ($(this).is(':checked')) {
+              checkCookie();
+            } else {
+              unsetCookie("newsletter-wrapper");
+            }
+          });
+
+          function unsetCookie( name ) {
+            document.cookie = name + '=; expires=Thu, 01 Jan 1970 00:00:01 GMT;';
+          }
+          $('.ss_newletter_custom_popup_bg').click(function(){
+            var this_close = $('.popup-close');
+            $('body').removeClass('hidden-scorll');
+            $('#popup-newletter').hide();
+          });
+          $('.popup-close').click(function(){
+            var this_close = $('.popup-close');
+            $('body').removeClass('hidden-scorll');
+            $('#popup-newletter').hide();
+          });
+          $('#popup-newletter').addClass('popup_bgs');
+        }
+      });
+    });
+    function setCookie(cname, cvalue, exdays) {
+      var d = new Date();
+      console.log(d.getTime());
+      d.setTime(d.getTime() + (exdays*24*60*60*1000));
+      var expires = "expires="+d.toUTCString();
+      document.cookie = cname + "=" + cvalue + "; " + expires;
+    }
+    function getCookie(cname) {
+      var name = cname + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+      }
+      return "";
+    }
+    function checkCookie() {
+      var check_cookie = getCookie("newsletter-wrapper");
+      if(check_cookie == ""){
+        setCookie("newsletter-wrapper", "Newletter Popup", 1 );
+      }
+    }
+  </script>
+</div>

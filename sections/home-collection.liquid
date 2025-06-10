@@ -1,0 +1,348 @@
+
+{% assign margin			= section.settings.owl_margin  %}
+{% assign column1			= section.settings.column1  %}
+{% assign column2 			= section.settings.column2  %}
+{% assign column3 			= section.settings.column3  %}
+{% assign column4 			= section.settings.column4  %}
+{% assign column5 			= section.settings.column5  %}
+{% assign show_container	= section.settings.show_container    %}
+{%- assign img_url = section.settings.background_image | img_url: 'master' -%}
+<div class="widget-collection " style="background :{% if section.settings.background_image !=blank %} url('{{ img_url }}') no-repeat top center;
+    {%else%} {{section.settings.background_color}}{%endif%}">
+     <div class="{% if section.settings.fw %}full-container{% else %}container{% endif %}">
+  		<div class="wrap-bg owl-style2">
+        {% if section.settings.titles != blank %}
+        <div class="home-title">
+           {% if section.settings.titles != blank %}
+               <h3>{{ section.settings.titles | escape }}</h3>
+          {% endif %}
+          {% if section.settings.view_all != blank %}
+  			<a class="view-all" href="collections/frontpage">{{ section.settings.view_all }}</a>
+          {% endif %}
+        </div>
+        {% endif %}
+        <div class="collections">
+          <div class="ss-carousel ss-owl">
+            <div class="owl-carousel" 
+                 data-nav		="false" 
+                 {% if settings.enable_rtl %}data-rtl="true"{% endif %}
+                 data-margin	="{{ margin }}"
+                 data-column1	="{{ column1 }}" 
+                 data-column2	="{{ column2 }}" 
+                 data-column3	="{{ column3 }}" 
+                 data-column4	="{{ column4 }}" 
+                 data-column5	="{{ column5 }}">
+              {% for block in section.blocks limit: section.blocks.size %}
+              
+               {% assign col = forloop.index | modulo:section.settings.row  %}
+                  {% assign col3 = forloop.index0 | modulo:section.settings.row   %}
+                  {% assign col2 = forloop.index %} 
+               {% if col3 == 0 or col2 == 1  %}
+              <div class="item">
+                 {% endif %}
+                <div class="collect {{ grid_item_width }}">
+                  <div class="item-image">
+                <a href="{% if collection == empty %}#{% else %}{{ collection.url }}{% endif %}" class="collection-item">
+                  {% if block.settings.image != blank %}
+                  <img class="collection-img img-responsive lazyload" data-sizes="auto" src="{{ "icon-loadings.svg" | asset_url }}" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
+                  {% else %}
+                  <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/150x150" />
+                  {% endif %}
+                </a>
+                </div>
+                <div class="cat-content">
+                <div class="colection-name">
+               {{ block.settings.collection_name }}
+                </div>
+                {%- assign collection = block.settings.collection_menu -%}
+                <ul class="colections">
+                {% for link in linklists[collection].links %}
+                <li>
+                  <a href="{{ link.url }}">{{ link.title }}</a>
+                </li>
+                {% endfor %}
+                  <li class="view-all"><a href="{{ block.settings.link_bt }}">{{ block.settings.text_bt }}</a></li>
+              </ul>
+                </div>
+                
+                </div>
+              {% if col == 0 or forloop.last  %}
+              </div>
+               {% endif %}
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        {% if section.blocks.size == 0 %}
+        {% include 'no-blocks' %}
+        {% endif %}
+      </div>
+  </div>
+</div>
+{% schema %}
+{
+  "name": "Home Collection List",
+  "class": "home-section clearfix",
+  "max_blocks": 12,
+  "settings": [
+    {
+    "type": "text",
+    "id": "titles",
+    "label": "Heading",
+    "default": "Features categories"
+    },
+
+    {
+    "type": "checkbox",
+    "id": "fw",
+    "label": "Full width"
+    },
+
+    {
+    "type": "header",
+    "content": "Owl Settings"
+    },
+     {
+    "type": "image_picker",
+    "id": "background_image",
+    "label": "Background image"
+    },
+    {
+    "type": "color",
+    "id": "background_color",
+    "label": "Background color",
+    "default": "#111111"
+    },
+	{
+    "type": "text",
+    "id": "view_all",
+    "label": "Button view all",
+    "default":"view all categories"
+    },
+    {
+    "type": "select",
+    "id": "column1",
+    "label": "#Column 1",
+    "default": "4",
+    "info": "For Large desktops have screen > 1200px",
+      "options":[
+
+      {
+      "value": "2",
+      "label": "2"
+      },
+      {
+      "value": "3",
+      "label": "3"
+      },
+      {
+      "value": "4",
+      "label": "4"
+      },
+      {
+      "value": "5",
+      "label": "5"
+      },
+      {
+      "value": "6",
+      "label": "6"
+      },
+      {
+      "value": "7",
+      "label": "7"
+      }
+      ]
+      },
+    {
+    "type": "select",
+    "id": "column2",
+    "label": "#Column 2",
+    "default": "3",
+    "info": "For Tablets have screen 991px to 1199px.",
+    "options":[
+    {
+    "value": "1",
+    "label": "1"
+    },
+    {
+    "value": "2",
+    "label": "2"
+    },
+    {
+    "value": "3",
+    "label": "3"
+    },
+    {
+    "value": "4",
+    "label": "4"
+    },
+    {
+    "value": "5",
+    "label": "5"
+    },
+    {
+    "value": "6",
+    "label": "6"
+    },
+    {
+    "value": "7",
+    "label": "7"
+    }
+    ]
+    },
+    {
+    "type": "select",
+    "id": "column3",
+    "label": "#Column 3",
+    "info": "For Tablets have screen 768px to 991px.",
+    "default": "2",
+    "options":[
+    {
+    "value": "1",
+    "label": "1"
+    },
+    {
+    "value": "2",
+    "label": "2"
+    },
+    {
+    "value": "3",
+    "label": "3"
+    },
+    {
+    "value": "4",
+    "label": "4"
+    },
+    {
+    "value": "5",
+    "label": "5"
+    },
+    {
+    "value": "6",
+    "label": "6"
+    }
+    ]
+    },
+    {
+    "type": "select",
+    "id": "column4",
+    "label": "#Column 4",
+    "default": "2",
+    "info": "For Smartphones landscape have screen 480px to 767px",
+    "options":[
+    {
+    "value": "1",
+    "label": "1"
+    },
+    {
+    "value": "2",
+    "label": "2"
+    },
+    {
+    "value": "3",
+    "label": "3"
+    },
+    {
+    "value": "4",
+    "label": "4"
+    },
+    {
+    "value": "5",
+    "label": "5"
+    }
+    ]
+    },
+    {
+    "type": "select",
+    "id": "column5",
+    "label": "#Column 5",
+    "default": "1",
+    "info": "For Smartphones have screen 0px to 479px.",
+    "options":[
+    {
+    "value": "1",
+    "label": "1"
+    },
+    {
+    "value": "2",
+    "label": "2"
+    }
+    ]
+    },
+	{
+    "type": "select",
+    "id": "row",
+    "label": "Sellect Row",
+    "default": "1",
+    "options":[
+    {
+    "value": "1",
+    "label": "1"
+    },
+    {
+    "value": "2",
+    "label": "2"
+    }
+    ]
+    },
+    {
+    "type": "text",
+    "id": "owl_margin",
+    "label": "Margin Item",
+    "default": "30"
+    }
+  ],
+"blocks": [
+{
+"type": "featured_collection",
+"name": "Collection",
+"settings": [
+{
+ "type": "link_list",
+      "id": "collection_menu",
+      "label": "Menu"
+},
+{
+"type": "text",
+"id": "collection_name",
+"label": "Collection Name"
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "Icons image"
+},
+{
+"type": "url",
+"id": "link_bt",
+ "label": "Button Link"
+},
+{
+"type": "text",
+"id": "text_bt",
+"label": "Button text",
+"default":"View more"
+}
+]
+}
+
+],
+"presets": [
+{
+"name": "Home Collection List",
+"category": "Collection",
+"blocks": [
+{
+"type": "featured_collection"
+},
+{
+"type": "featured_collection"
+},
+{
+"type": "featured_collection"
+}
+]
+}
+]
+}
+{% endschema %}

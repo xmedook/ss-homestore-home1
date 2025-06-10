@@ -1,0 +1,32 @@
+{% if settings.font_body == 'google_fonts' or settings.font_heading == 'google_fonts' or settings.font_custom == 'google_fonts' %}
+<script type="text/javascript">
+  WebFontConfig = {
+    google: { families: [ 
+      {% if settings.font_body == 'google_fonts' %}
+          '{{ settings.fonts_body }}:400,600,700'
+	  {% endif %}
+      
+     
+      {% if settings.fonts_heading != settings.fonts_body and settings.fonts_heading != settings.fonts_custom  %}
+      		,
+        '{{ settings.fonts_heading }}:400,600,700'
+	  {% endif %}      
+      
+      
+      {% if settings.fonts_custom != settings.fonts_body and settings.fonts_custom != settings.fonts_heading  %}
+      		,
+        '{{ settings.fonts_custom }}:400,600,700'
+	  {% endif %} 
+    ] }
+  };
+  (function() {
+    var wf = document.createElement('script');
+    wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+      '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+    wf.type = 'text/javascript';
+    wf.async = 'true';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(wf, s);
+  })(); 
+</script>
+{% endif %}

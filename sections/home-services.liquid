@@ -1,0 +1,287 @@
+{% assign column1			= section.settings.column1  %}
+{% assign column2 			= section.settings.column2  %}
+{% assign column3 			= section.settings.column3  %}
+{% assign column4 			= section.settings.column4  %}
+{% assign column5 			= section.settings.column5  %}
+{% assign margin			= section.settings.owl_margin  %}
+<div class="widget-services {{ section.settings.style }}">
+  <div class="{% if section.settings.show_container %}full{% else %}container{% endif %}">
+    <div class="home-services">
+      <div class="services-inline">
+        {% if section.settings.title != blank %}<h3 class="title-home hidden">{{ section.settings.title }}</h3>{% endif %}
+        <div class="ss-carousel ss-owl">
+          <div class="owl-carousel" 
+               {% if settings.enable_rtl %}data-rtl="true"{% endif %}
+               data-margin		="{{ margin }}"
+               data-column1	="{{ column1 }}" 
+               data-column2	="{{ column2 }}" 
+               data-column3	="{{ column3 }}" 
+               data-column4	="{{ column4 }}" 
+               data-column5	="{{ column5 }}">
+            {% if section.blocks.size > 0 %}
+            {% for block in section.blocks %}
+
+            <div class="policy policy{{ forloop.index0 }}">
+              <div class="policy_inner">
+                {% if block.settings.sv_icon !=blank %}
+                <div class="service-ico">
+                  <i class="material-icons">{{ block.settings.sv_icon }}</i>
+                </div>
+                {% endif %}
+                 {% if block.settings.show_image !=blank %}
+                <a class="image" href="{{ block.settings.link }}">
+                 {% if block.settings.image != blank %}
+                    <img class="img-responsive" alt="{{ block.settings.image.alt | default: shop.name }}" src="{{ block.settings.image | img_url:'master' }}" />
+                    {% else %}
+                    <img class="img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/60x60" />
+                    {% endif %}
+                </a>
+                {% endif %}
+                <div class="service-info">
+                  {% if block.settings.title != blank %}<h2 class="title">{{ block.settings.title }}</h2>{% endif %}
+                  {% if block.settings.description != blank %}<p class="des">{{ block.settings.description }}</p>{% endif %}
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% schema %}
+{
+"name": "Home Services",
+"class": "home-section clearfix",
+"settings":[
+{
+"type": "header",
+"content": "General Settings"
+},
+{
+"type": "checkbox",
+"id": "show_container",
+"label": "Full width",
+"default": true
+},
+{
+"type": "select",
+"id": "style",
+"label": "Select Style",
+"default": "style-df",
+"options":[
+{
+"value": "style-df",
+"label": "Style Default"
+},
+{
+"value": "style-2",
+"label": "Style 2"
+}
+]
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title",
+"placeholder": "Title",
+"default": "false"
+},
+{
+"type": "header",
+"content": "Owl Settings"
+},
+{
+"type": "select",
+"id": "column1",
+"label": "#Column 1",
+"default": "4",
+"info": "For Large desktops have screen > 1200px",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column2",
+"label": "#Column 2",
+"default": "3",
+"info": "For Tablets have screen 992px to 1199px.",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column3",
+"label": "#Column 3",
+"info": "For Tablets have screen 768px to 991px.",
+"default": "2",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column4",
+"label": "#Column 4",
+"default": "2",
+"info": "For Smartphones landscape have screen 568px to 767px",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+},
+{
+"value": "3",
+"label": "3"
+},
+{
+"value": "4",
+"label": "4"
+},
+{
+"value": "5",
+"label": "5"
+}
+]
+},
+{
+"type": "select",
+"id": "column5",
+"label": "#Column 5",
+"default": "1",
+"info": "For Smartphones have screen 320px to 567px.",
+"options":[
+{
+"value": "1",
+"label": "1"
+},
+{
+"value": "2",
+"label": "2"
+}
+]
+},
+{
+"type": "text",
+"id": "owl_margin",
+"label": "Margin Item",
+"default": "30"
+}
+],
+"blocks": [
+{
+"type": "box",
+"name": "Service Item",
+"settings": [
+{
+"type": "text",
+"id": "sv_icon",
+"label": "Icon name (Font Material)",
+"info": "[Use Font Material](http:\/\/material.io\/icons\/)",
+"default":"local_shipping"
+},
+{
+"type": "checkbox",
+"id": "show_image",
+"label": "Show image",
+"default": false
+},
+{
+"type": "image_picker",
+"id": "image",
+"label": "image icon"
+},
+{
+"type": "text",
+"id": "title",
+"label": "Title",
+"placeholder": "Title",
+"default": "Free Shipping & Return"
+},
+{
+"type": "text",
+"id": "description",
+"label": "Description",
+"placeholder": "Title",
+"default": "Free shipping on orders over $49"
+}
+
+]
+}
+],
+"presets": [
+{
+"name": "Home Services",
+"category": "Services",
+"settings":{
+"title":"Home Services"
+}
+}
+]
+}
+{% endschema %}

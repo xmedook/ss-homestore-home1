@@ -1,0 +1,190 @@
+
+<footer data-section-id="{{ section.id }}" data-section-type="header-section" class="site-footer clearfix">
+      
+  {% include 'footer-1' %}
+</footer>
+
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Footer Layout"
+    },
+	{
+      "type": "color",
+      "id": "bg_color_footer",
+      "label": "BG color Footer ",
+      "default": "#222222"
+    },
+	
+	{
+      "type": "image_picker",
+      "id": "bg_img_footer",
+      "label": "BG Img Footer"
+    },
+	{
+      "type": "header",
+      "content": "Footer Top Setting"
+    },
+	{
+      "type": "checkbox",
+      "id": "footer_top_enable",
+      "label": "Enable Footer Top?",
+      "default": true
+    },
+	 
+	
+	
+	{
+      "type": "header",
+      "content": "Footer Column 1"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_co1_enable",
+      "label": "Enable",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "footer_title_1",
+      "label": "Column 1 Title",
+      "default": "your links"
+    },
+
+    {
+      "type": "text",
+      "id": "footer_contact_address",
+      "label": "Address",
+      "placeholder": "Address",
+      "default": "Contact Us"
+    },
+    {
+      "type": "text",
+      "id": "footer_contact_email",
+      "label": "Email",
+      "placeholder": "Email"
+    },
+ 	{
+      "type": "text",
+      "id": "footer_contact_phone",
+      "label": "Phone",
+      "placeholder": "Phone"
+    },
+	{
+      "type": "checkbox",
+      "id": "footer_socials_enable",
+      "label": "Enable Footer Socials",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Footer Column 2"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_co2_enable",
+      "label": "Enable ?",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "footer_title_2",
+      "label": "Column 2 Title",
+      "default": "your links"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist_2",
+      "label": "Footer Column 2"
+    },
+	{
+      "type": "header",
+      "content": "Footer Column 3"
+    },
+    {
+      "type": "checkbox",
+      "id": "footer_co3_enable",
+      "label": "Enable ?",
+      "default": true
+    },
+	{
+      "type": "text",
+      "id": "footer_title_3",
+      "label": "Column 3 Title",
+      "default": "your links"
+    },
+    {
+      "type": "link_list",
+      "id": "footer_linklist_3",
+      "label": "Footer Column 3"
+    },
+	
+	{
+      "type": "header",
+      "content": "Footer Newsletter Setting"
+    },
+	{
+      "type": "checkbox",
+      "id": "footer_newsletter_enable",
+      "label": "Enable Footer Newsletter",
+      "default": true
+    },
+	{
+      "type": "text",
+      "id": "footer_title_newletter",
+      "label": "Title",
+      "default": "your links"
+    },
+	
+
+	{
+      "type": "header",
+      "content": "Footer Bottom Setting"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_bottom",
+      "label": "Enable Footer Bottom?",
+      "default": false
+    },
+	{
+      "type": "header",
+      "content": "Footer CopyRight"
+    },
+
+    {
+      "type": "textarea",
+      "id": "footer_about",
+      "label": "Footer About"
+    },
+	
+	{
+      "type": "header",
+      "content": "Footer Payment"
+    },
+	{
+      "type": "checkbox",
+      "id": "footer_show_pay",
+      "label": "Enable ?",
+      "default": true
+    },
+	{
+      "type": "image_picker",
+      "id": "img_payment_ft",
+      "label": "Img Payment Footer"
+    },
+	{
+      "type": "url",
+      "id": "link_pay",
+      "label": "Link Img Payment Footer",
+      "info": "link Img Payment Footer"
+    }
+  ]
+
+}
+{% endschema %}
+

@@ -1,0 +1,91 @@
+{% if section.settings.show_section %}
+<div class="widget-quicklink clearfix d-none d-lg-block">
+  <div class="wrap">
+    {% if section.settings.title_quick != blank %}
+    <div class="quick-title">
+      <span>{{ section.settings.title_quick | escape }}</span>
+    </div>
+    {% endif %}
+    {% if section.blocks.size > 0 %}
+    <ul>
+      {% for block in section.blocks %}
+
+      <li>
+        <a href="{{ block.settings.link_quick }}">
+          {{ block.settings.title_quick }}
+        </a>
+      </li>
+      {% endfor %}
+
+      {% endif %}
+    </ul>
+    {% if section.blocks.size == 0 %}
+    {% include 'no-blocks' %}
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+{% schema %}
+{
+"name": "Home Quick Link",
+"max_blocks": 15,
+"settings": [
+{
+"type": "header",
+"content": "Settings Garenal"
+},
+{
+"type": "checkbox",
+"id": "show_section",
+"label": "Show Section",
+"default": true
+},
+{
+"type": "text",
+"id": "title_quick",
+"label": "Heading",
+"default": "Go quickly to"
+}
+
+],
+"blocks": [
+{
+"type": "quick_link",
+"name": "Link",
+"settings": [
+{
+"type": "text",
+"id": "title_quick",
+"label": "Heading",
+"default": "Quick Name"
+},
+{
+"type": "url",
+"id": "link_quick",
+"label": "Link Quick"
+}
+]
+}
+],
+"presets": [
+{
+"name": "Home Quick Link",
+"category": "Collection",
+"blocks": [
+{
+"type": "quick_link"
+},
+{
+"type": "quick_link"
+},
+{
+"type": "quick_link"
+},
+{
+"type": "quick_link"
+}
+]
+}
+]
+}
+{% endschema %}
