@@ -1878,8 +1878,9 @@
             "type": "slider_list",
             "settings": {
               "show_status": "yes",
+              "image": "shopify://shop_images/jpg.jpg",
               "banner_link": "#",
-              "content_status": "no",
+              "content_status": "yes",
               "sub_title": "New Arrivals 2019",
               "heading": "Body parts for any vehicle",
               "text_content": "Price only: <span>$123.00 </span>"
@@ -1889,6 +1890,7 @@
             "type": "slider_list",
             "settings": {
               "show_status": "yes",
+              "image": "shopify://shop_images/jpg.jpg",
               "banner_link": "#",
               "content_status": "no",
               "sub_title": "New Arrivals 2019",
@@ -1900,6 +1902,7 @@
             "type": "slider_list",
             "settings": {
               "show_status": "yes",
+              "image": "shopify://shop_images/jpg.jpg",
               "banner_link": "#",
               "content_status": "no",
               "sub_title": "Best Collection 2019",
