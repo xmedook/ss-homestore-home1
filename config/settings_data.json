@@ -36,7 +36,7 @@
     "text_headerct_color": "#6d6d6d",
     "logo_text": "Logo",
     "logo_img": true,
-    "logo": "shopify://shop_images/logo.png",
+    "logo": "shopify://shop_images/jpg_1.jpg",
     "logo_max_width": "252",
     "logo_mobile": "shopify://shop_images/logo_mobile.png",
     "enable_rtl": false,
