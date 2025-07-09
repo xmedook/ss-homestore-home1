@@ -381,10 +381,10 @@
           "footer_title_3": "Customer Services",
           "footer_linklist_3": "",
           "footer_newsletter_enable": true,
-          "footer_title_newletter": "Sign Up Newsletter & Get <span>20% Off</span> First Order",
+          "footer_title_newletter": "Suscribete a nuestro <span>boletín</span>",
           "show_bottom": true,
-          "footer_about": "Ss HomeStore ©2018 Demo Store. All Rights Reserved. Designed by <a href=\"http://www.revotheme.com/\" target=\"_blank\">RevoTheme.Com</a>.",
-          "footer_show_pay": true,
+          "footer_about": "ZOLEZZI ©2025 Todos los derechos reservados",
+          "footer_show_pay": false,
           "link_pay": "/"
         }
       },
