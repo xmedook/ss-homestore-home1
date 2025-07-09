@@ -1954,13 +1954,22 @@
       "1543984389870": {
         "type": "home-services",
         "blocks": {
+          "box_XgA4wn": {
+            "type": "box",
+            "settings": {
+              "sv_icon": "local_shipping",
+              "show_image": false,
+              "title": "Atención personalizada",
+              "description": "Cada pieza es única, como cada cliente. <br> Te guiamos en cada paso de tu compra."
+            }
+          },
           "1543984453462": {
             "type": "box",
             "settings": {
               "sv_icon": "",
               "show_image": true,
-              "title": "Fast & Free Shipping",
-              "description": "Sed ac erat dales vitae non estin vitae egestas enim in pretium nulla"
+              "title": "Envío Seguro y Cuidadoso",
+              "description": "Tu mueble viaja protegido, con el mismo cuidado con el que fue creado."
             }
           },
           "1543984442190": {
@@ -1968,8 +1977,8 @@
             "settings": {
               "sv_icon": "",
               "show_image": true,
-              "title": "Money Back Guarantee",
-              "description": "Sed ac erat dales vitae non estin vitae egestas enim in pretium nulla"
+              "title": "Garantía de Satisfacción",
+              "description": "Confía en nuestro oficio. Si tu compra no supera tus expectativas, encontraremos una solución."
             }
           },
           "1543984891521": {
@@ -1983,6 +1992,7 @@
           }
         },
         "block_order": [
+          "box_XgA4wn",
           "1543984453462",
           "1543984442190",
           "1543984891521"
