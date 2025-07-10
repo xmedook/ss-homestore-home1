@@ -1,7 +1,9 @@
 {% section 'header' %}
 <!-- eMarket 1-->
 <header id="header" class="header header-style1{% if settings.header_float_enable %} header-fixed{% endif %}">
+  {% comment %}
   {% if settings.display_header_top %}
+   
    <div class="header-top d-none d-lg-block">
     <div class="container">
       <div class="row">  
@@ -21,7 +23,7 @@
         </div>     
 
         
-         {% comment %}
+         
          
         <div class="header-top-right no__at col-xl-6 col-lg-6 col-sm-12 col-12">
           <ul class="toplinks-wrapper">
@@ -51,12 +53,13 @@
             
           </ul>
         </div>
-        {% endcomment %}
+       
     
       </div>
     </div>
   </div>
   {% endif %}
+ {% endcomment %}
   <div class="header-center">
     <div class="container">
         <div class="navbar-logo d-none d-lg-block">
