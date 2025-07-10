@@ -655,6 +655,7 @@
         "blocks": {
           "1528441729722": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "title": "Home",
               "cal_width": "full",
@@ -688,6 +689,7 @@
           },
           "1528441946800": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "title": "Features",
               "cal_width": "custom",
@@ -721,6 +723,7 @@
           },
           "1510549520114": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "title": "Collections",
               "cal_width": "custom",
@@ -754,6 +757,7 @@
           },
           "1512705049457": {
             "type": "text",
+            "disabled": true,
             "settings": {
               "title": "Shop",
               "cal_width": "custom",
