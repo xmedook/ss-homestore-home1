@@ -1881,9 +1881,9 @@
               "image": "shopify://shop_images/jpg.jpg",
               "banner_link": "#",
               "content_status": "yes",
-              "sub_title": "New Arrivals 2019",
-              "heading": "Body parts for any vehicle",
-              "text_content": "Price only: <span>$123.00 </span>"
+              "sub_title": "Cada pieza Zolezzi es un homenaje al arte, la memoria y el oficio mexicano. Diseñada para espacios con alma.",
+              "heading": "Creamos piezas únicas para tu espacio, con excelentes detalles en piel.",
+              "text_content": ""
             }
           },
           "1543827462106": {
@@ -1897,24 +1897,11 @@
               "heading": "Exciting bundle get 30% off",
               "text_content": "Price only: <span>$123.00 </span>"
             }
-          },
-          "1543827482646": {
-            "type": "slider_list",
-            "settings": {
-              "show_status": "yes",
-              "image": "shopify://shop_images/jpg.jpg",
-              "banner_link": "#",
-              "content_status": "no",
-              "sub_title": "Best Collection 2019",
-              "heading": "Mountain bikes",
-              "text_content": "Price only: <span>$123.00 </span>"
-            }
           }
         },
         "block_order": [
           "1543822110739-0",
-          "1543827462106",
-          "1543827482646"
+          "1543827462106"
         ],
         "settings": {
           "show_container": false,
