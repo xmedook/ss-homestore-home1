@@ -2080,9 +2080,13 @@
       "1544776039094": {
         "type": "home-bannerct",
         "settings": {
+          "image1": "shopify://shop_images/home-1.png",
           "link1": "#",
+          "image2": "shopify://shop_images/home-2.png",
           "link2": "#",
+          "image3": "shopify://shop_images/home-3.png",
           "link23": "#",
+          "image4": "shopify://shop_images/home-4_6c78672d-62b5-494e-82cf-55efc870da36.png",
           "link4": "#"
         }
       },
