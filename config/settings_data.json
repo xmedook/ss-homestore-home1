@@ -1892,6 +1892,7 @@
           },
           "1543827462106": {
             "type": "slider_list",
+            "disabled": true,
             "settings": {
               "show_status": "yes",
               "image": "shopify://shop_images/jpg.jpg",
