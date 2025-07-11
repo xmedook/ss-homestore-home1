@@ -33,15 +33,19 @@
             {% if block.settings.show_status == 'yes' %}
                 <div class="heroCarousel--item">
                   {%- assign banner_link = block.settings.banner_link -%}
-                  <a href="{% if banner_link == blank %}#{% else %}{{ banner_link}}{% endif %}" class="heroCarousel-item">
-                    {% if block.settings.image != blank %}
-                        <img class="collection-img img-responsive lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
-                    {% else %}
-                        <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/1770X750" />
-                    {% endif %}
+                <a href="{% if banner_link == blank %}#{% else %}{{ banner_link}}{% endif %}" class="heroCarousel-item">
+                  {% if block.settings.image != blank %}
+                      <img class="collection-img img-responsive lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
+                  {% else %}
+                      <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/1770X750" />
+                  {% endif %}
 
-                    {% if block.settings.content_status == 'yes' %}
-                    <div class="heroCarousel-content {{ block.settings.text_alignment }}" style="max-width: {{ block.settings.content_width }}%;
+                  {% if block.settings.overlay_enable %}
+                  <div class="heroCarousel-overlay" style="background-color: {{ block.settings.overlay_color }}; opacity: {{ block.settings.overlay_opacity }}; mix-blend-mode: {{ block.settings.overlay_blend_mode }};"></div>
+                  {% endif %}
+
+                  {% if block.settings.content_status == 'yes' %}
+                  <div class="heroCarousel-content {{ block.settings.text_alignment }}" style="max-width: {{ block.settings.content_width }}%;
                     {% case block.settings.content_position %}
                       {% when 'left' %}
                         left: 0;
@@ -70,11 +74,11 @@
 
                     </div>
 
-                    {% endif %}
+                  {% endif %}
 
-                  </a>
+                </a>
 
-                </div>
+              </div>
             {% endif %}
             {% endfor %}
           </div>
@@ -230,6 +234,51 @@
 {"value": "left", "label": "Left"},
 {"value": "center", "label": "Center"},
 {"value": "right", "label": "Right"}
+]
+},
+{
+"type": "checkbox",
+"id": "overlay_enable",
+"label": "Enable Overlay",
+"default": false
+},
+{
+"type": "color",
+"id": "overlay_color",
+"label": "Overlay Color",
+"default": "#000000"
+},
+{
+"type": "range",
+"id": "overlay_opacity",
+"min": 0,
+"max": 1,
+"step": 0.1,
+"label": "Overlay Opacity",
+"default": 0.5
+},
+{
+"type": "select",
+"id": "overlay_blend_mode",
+"label": "Overlay Blend Mode",
+"default": "normal",
+"options": [
+{"value": "normal", "label": "Normal"},
+{"value": "multiply", "label": "Multiply"},
+{"value": "screen", "label": "Screen"},
+{"value": "overlay", "label": "Overlay"},
+{"value": "darken", "label": "Darken"},
+{"value": "lighten", "label": "Lighten"},
+{"value": "color-dodge", "label": "Color Dodge"},
+{"value": "color-burn", "label": "Color Burn"},
+{"value": "hard-light", "label": "Hard Light"},
+{"value": "soft-light", "label": "Soft Light"},
+{"value": "difference", "label": "Difference"},
+{"value": "exclusion", "label": "Exclusion"},
+{"value": "hue", "label": "Hue"},
+{"value": "saturation", "label": "Saturation"},
+{"value": "color", "label": "Color"},
+{"value": "luminosity", "label": "Luminosity"}
 ]
 }
 
