@@ -1908,6 +1908,9 @@
           "1543822110739-0",
           "1543827462106"
         ],
+        "custom_css": [
+          ".heroCarousel-slider .owl-carousel .owl-item img {width: 100%;}"
+        ],
         "settings": {
           "show_container": false,
           "owl_navigation": true,
