@@ -2089,13 +2089,13 @@
         "type": "home-bannerct",
         "settings": {
           "image1": "shopify://shop_images/Siilas.jpg",
-          "link1": "#",
+          "link1": "shopify://collections/sillas-y-bancos",
           "image2": "shopify://shop_images/Diseno_sin_titulo_83_1.jpg",
-          "link2": "#",
+          "link2": "shopify://collections/baules-y-maletas-bar",
           "image3": "shopify://shop_images/Diseno_sin_titulo_84_1.jpg",
-          "link23": "#",
+          "link23": "shopify://collections/escritorios-y-mesas",
           "image4": "shopify://shop_images/home-4_6c78672d-62b5-494e-82cf-55efc870da36.png",
-          "link4": "#"
+          "link4": "shopify://collections/cabeceras-y-buros"
         }
       },
       "1544776211883": {
