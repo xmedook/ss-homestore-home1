@@ -1889,7 +1889,8 @@
               "heading": "Creamos piezas únicas para tu espacio, con excelentes detalles en piel.",
               "text_content": "Cada pieza Zolezzi es un homenaje al arte, la memoria y el oficio mexicano. Diseñada para espacios con alma.",
               "text_alignment": "text-right",
-              "content_width": 50
+              "content_width": 50,
+              "content_position": "right"
             }
           },
           "1543827462106": {
@@ -1904,7 +1905,8 @@
               "heading": "Exciting bundle get 30% off",
               "text_content": "Price only: <span>$123.00 </span>",
               "text_alignment": "text-center",
-              "content_width": 100
+              "content_width": 100,
+              "content_position": "center"
             }
           }
         },
