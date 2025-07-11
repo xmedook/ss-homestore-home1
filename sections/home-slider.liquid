@@ -1,205 +1,217 @@
-{% if section.blocks.size > 0 %}
+  {% if section.blocks.size > 0 %}
 
-{% assign navigation			= section.settings.owl_navigation  %}
-{% assign dots			= section.settings.owl_dot  %}
-{% assign margin			= section.settings.owl_margin  %}
-{% assign autoplay			= section.settings.owl_autoplay  %}
-{% assign autospeed			= section.settings.owl_autoplay_speed  %}
-{% assign speed 			= section.settings.owl_speed  %}
-{% assign loop 			= section.settings.owl_loop  %}
-{% assign show_container	= section.settings.show_container    %}
+  {% assign navigation			= section.settings.owl_navigation  %}
+  {% assign dots			= section.settings.owl_dot  %}
+  {% assign margin			= section.settings.owl_margin  %}
+  {% assign autoplay			= section.settings.owl_autoplay  %}
+  {% assign autospeed			= section.settings.owl_autoplay_speed  %}
+  {% assign speed 			= section.settings.owl_speed  %}
+  {% assign loop 			= section.settings.owl_loop  %}
+  {% assign show_container	= section.settings.show_container    %}
 
 
 
-<div class="widget-slideshow">
-  <div class="{% if show_container %}container{% else %} container_full{% endif %}">
-      <div class="coll-slider heroCarousel-slider ss-owl widget-slideshow widget-slideshow1">
-        <div class="owl-carousel" 
-             {% if settings.enable_rtl %}data-rtl="true"{% endif %}
-             data-margin	="{{ margin }}"
-             data-nav	="{{ navigation }}" 
-             data-dots	="{{ dots }}" 
-             data-autoplay	="{{ autoplay }}" 
-             data-autospeed	="{{ autospeed }}" 
-             data-speed	="{{ speed }}"
-             data-loop	="{{ loop }}"
-             data-column1	="1" 
-             data-column2	="1" 
-             data-column3	="1" 
-             data-column4	="1" 
-             data-column5	="1">
+  <div class="widget-slideshow">
+    <div class="{% if show_container %}container{% else %} container_full{% endif %}">
+        <div class="coll-slider heroCarousel-slider ss-owl widget-slideshow widget-slideshow1">
+          <div class="owl-carousel" 
+              {% if settings.enable_rtl %}data-rtl="true"{% endif %}
+              data-margin	="{{ margin }}"
+              data-nav	="{{ navigation }}" 
+              data-dots	="{{ dots }}" 
+              data-autoplay	="{{ autoplay }}" 
+              data-autospeed	="{{ autospeed }}" 
+              data-speed	="{{ speed }}"
+              data-loop	="{{ loop }}"
+              data-column1	="1" 
+              data-column2	="1" 
+              data-column3	="1" 
+              data-column4	="1" 
+              data-column5	="1">
 
-          {% for block in section.blocks limit: section.blocks.size %}
-          {% if block.settings.show_status == 'yes' %}
-              <div class="heroCarousel--item">
-                {%- assign banner_link = block.settings.banner_link -%}
-                <a href="{% if banner_link == blank %}#{% else %}{{ banner_link}}{% endif %}" class="heroCarousel-item">
-                  {% if block.settings.image != blank %}
-                      <img class="collection-img img-responsive lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
-                  {% else %}
-                      <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/1770X750" />
-                  {% endif %}
+            {% for block in section.blocks limit: section.blocks.size %}
+            {% if block.settings.show_status == 'yes' %}
+                <div class="heroCarousel--item">
+                  {%- assign banner_link = block.settings.banner_link -%}
+                  <a href="{% if banner_link == blank %}#{% else %}{{ banner_link}}{% endif %}" class="heroCarousel-item">
+                    {% if block.settings.image != blank %}
+                        <img class="collection-img img-responsive lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
+                    {% else %}
+                        <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/1770X750" />
+                    {% endif %}
 
-                  {% if block.settings.content_status == 'yes' %}
-                  <div class="heroCarousel-content {{ block.settings.text_alignment }}" style="max-width: {{ block.settings.content_width }}%;">
-                     {% if block.settings.sub_title != blank %}
-                      <h4 class="heroCarousel-subtitle">{{ block.settings.sub_title }}</h4>
-                      {% endif %}
-                      {% if block.settings.heading != blank %}
-                      <h1 class="heroCarousel-title">{{ block.settings.heading }}</h1>
-                      {% endif %}
+                    {% if block.settings.content_status == 'yes' %}
+                    <div class="heroCarousel-content {{ block.settings.text_alignment }}" style="max-width: {{ block.settings.content_width }}%;
+                    {% case block.settings.content_position %}
+                      {% when 'left' %}
+                        left: 0;
+                        transform: translateX(0%);
+                      {% when 'center' %}
+                        left: 50%;
+                        transform: translateX(-50%);
+                      {% when 'right' %}
+                        right: 0;
+                        transform: translateX(0%);
+                    {% endcase %}
+                  ">
+                      {% if block.settings.sub_title != blank %}
+                        <h4 class="heroCarousel-subtitle">{{ block.settings.sub_title }}</h4>
+                        {% endif %}
+                        {% if block.settings.heading != blank %}
+                        <h1 class="heroCarousel-title">{{ block.settings.heading }}</h1>
+                        {% endif %}
 
-                      <div class="heroCarousel-description">
-                          {% if block.settings.text_content != blank %}
-                          <h3 class="description-tilte">{{ block.settings.text_content }}</h3>
-                          {% endif %}
+                        <div class="heroCarousel-description">
+                            {% if block.settings.text_content != blank %}
+                            <h3 class="description-tilte">{{ block.settings.text_content }}</h3>
+                            {% endif %}
 
-                      </div>
+                        </div>
 
-                  </div>
+                    </div>
 
-                  {% endif %}
+                    {% endif %}
 
-                </a>
+                  </a>
 
-              </div>
-          {% endif %}
-          {% endfor %}
+                </div>
+            {% endif %}
+            {% endfor %}
+          </div>
         </div>
-      </div>
+    </div>
   </div>
-</div>
 
-{% endif %}
-{% schema %}
-{
-"name": "Home Slider",
-"class": "home-section",
-"max_blocks": 12,
-"settings": [
-{
-"type": "header",
-"content": "Slider Settings"
-},
-{
-          "type": "checkbox",
-          "id": "show_container",
-          "label": "Enable Width Container",
-          "default": true
-        },
-{
-"type": "checkbox",
-"id": "owl_navigation",
-"label": "Show navigation",
-"default": true
-},
-{
-"type": "checkbox",
-"id": "owl_dot",
-"label": "Show dot",
-"default": true
-},
+  {% endif %}
+  {% schema %}
+  {
+  "name": "Home Slider",
+  "class": "home-section",
+  "max_blocks": 12,
+  "settings": [
+  {
+  "type": "header",
+  "content": "Slider Settings"
+  },
+  {
+            "type": "checkbox",
+            "id": "show_container",
+            "label": "Enable Width Container",
+            "default": true
+          },
+  {
+  "type": "checkbox",
+  "id": "owl_navigation",
+  "label": "Show navigation",
+  "default": true
+  },
+  {
+  "type": "checkbox",
+  "id": "owl_dot",
+  "label": "Show dot",
+  "default": true
+  },
 
-{
-"type": "checkbox",
-"id": "owl_autoplay",
-"label": "Owl Auto Play",
-"default": true
-},
-{
-"type": "checkbox",
-"id": "owl_loop",
-"label": "Owl Loop",
-"default": true
-},
-{
-"type": "text",
-"id": "owl_margin",
-"label": "Margin Item",
-"default": "0"
-},
-{
-"type": "text",
-"id": "owl_autoplay_speed",
-"label": "Owl Auto Play speed",
-"info": "Default: 10000(ms)",
-"default": "10000"
-},
-{
-"type": "text",
-"id": "owl_speed",
-"label": "Owl Speed",
-"info": "Slide/Fade animation speed",
-"default": "300"
-}
-      
-],
-"blocks": [
-{
-"type": "slider_list",
-"name": "Slide",
-"settings": [
-{
-"type": "select",
-"id": "show_status",
-"label": "Status",
-"default": "yes",
-"options": [
-{"value": "no", "label": "No"},
-{"value": "yes", "label": "Yes"}
-]
-},
-{
-"type": "image_picker",
-"id": "image",
-"label": "Image"
-},
-{
-"type": "url",
-"id": "banner_link",
-"label": "Link url image"
-},
-{
-"type": "select",
-"id": "content_status",
-"label": "Show Content",
-"default": "no",
-"options": [
-{"value": "no", "label": "No"},
-{"value": "yes", "label": "Yes"}
-]
-},
+  {
+  "type": "checkbox",
+  "id": "owl_autoplay",
+  "label": "Owl Auto Play",
+  "default": true
+  },
+  {
+  "type": "checkbox",
+  "id": "owl_loop",
+  "label": "Owl Loop",
+  "default": true
+  },
+  {
+  "type": "text",
+  "id": "owl_margin",
+  "label": "Margin Item",
+  "default": "0"
+  },
+  {
+  "type": "text",
+  "id": "owl_autoplay_speed",
+  "label": "Owl Auto Play speed",
+  "info": "Default: 10000(ms)",
+  "default": "10000"
+  },
+  {
+  "type": "text",
+  "id": "owl_speed",
+  "label": "Owl Speed",
+  "info": "Slide/Fade animation speed",
+  "default": "300"
+  }
+        
+  ],
+  "blocks": [
+  {
+  "type": "slider_list",
+  "name": "Slide",
+  "settings": [
+  {
+  "type": "select",
+  "id": "show_status",
+  "label": "Status",
+  "default": "yes",
+  "options": [
+  {"value": "no", "label": "No"},
+  {"value": "yes", "label": "Yes"}
+  ]
+  },
+  {
+  "type": "image_picker",
+  "id": "image",
+  "label": "Image"
+  },
+  {
+  "type": "url",
+  "id": "banner_link",
+  "label": "Link url image"
+  },
+  {
+  "type": "select",
+  "id": "content_status",
+  "label": "Show Content",
+  "default": "no",
+  "options": [
+  {"value": "no", "label": "No"},
+  {"value": "yes", "label": "Yes"}
+  ]
+  },
 
-{
-"type": "text",
-"id": "sub_title",
-"label": "Sub title",
-"default": "New Arrivals 2019 "
-},
-{
-"type": "text",
-"id": "heading",
-"label": "Heading",
-"default": "Best collection"
-},
-{
-"type": "text",
-"id": "text_content",
-"label": "Text content",
-"default": "Price only: <span>$123.00 </span>"
-},
-{
-"type": "select",
-"id": "text_alignment",
-"label": "Text Alignment",
-"default": "text-center",
-"options": [
-{"value": "text-left", "label": "Left"},
-{"value": "text-center", "label": "Center"},
-{"value": "text-right", "label": "Right"}
-]
-},
-{
+  {
+  "type": "text",
+  "id": "sub_title",
+  "label": "Sub title",
+  "default": "New Arrivals 2019 "
+  },
+  {
+  "type": "text",
+  "id": "heading",
+  "label": "Heading",
+  "default": "Best collection"
+  },
+  {
+  "type": "text",
+  "id": "text_content",
+  "label": "Text content",
+  "default": "Price only: <span>$123.00 </span>"
+  },
+  {
+  "type": "select",
+  "id": "text_alignment",
+  "label": "Text Alignment",
+  "default": "text-center",
+  "options": [
+  {"value": "text-left", "label": "Left"},
+  {"value": "text-center", "label": "Center"},
+  {"value": "text-right", "label": "Right"}
+  ]
+  },
+  {
 "type": "range",
 "id": "content_width",
 "min": 20,
@@ -208,41 +220,52 @@
 "unit": "%",
 "label": "Content Width",
 "default": 100
+},
+{
+"type": "select",
+"id": "content_position",
+"label": "Content Position",
+"default": "center",
+"options": [
+{"value": "left", "label": "Left"},
+{"value": "center", "label": "Center"},
+{"value": "right", "label": "Right"}
+]
 }
 
 ]
 }
 ],
 "presets": [
-{
-"name": "Home Slider",
-"category": "Magentech"    ,
-"blocks": [
-{
-"type": "slider_list"
-}
-]        
-}
-]
-}
-{% endschema %}
+  {
+  "name": "Home Slider",
+  "category": "Magentech"    ,
+  "blocks": [
+  {
+  "type": "slider_list"
+  }
+  ]        
+  }
+  ]
+  }
+  {% endschema %}
 
-{% stylesheet %}
-.tp-banner-container{
-width:100%;
-position:relative;
-padding:0;
-}
-.tp-banner{
-width:100%;
-position:relative;
-}
-.tp-banner-fullscreen-container {
-width:100%;
-position:relative;
-padding:0;
-}
-{% endstylesheet %}
+  {% stylesheet %}
+  .tp-banner-container{
+  width:100%;
+  position:relative;
+  padding:0;
+  }
+  .tp-banner{
+  width:100%;
+  position:relative;
+  }
+  .tp-banner-fullscreen-container {
+  width:100%;
+  position:relative;
+  padding:0;
+  }
+  {% endstylesheet %}
 
-{% javascript %}
-{% endjavascript %}
+  {% javascript %}
+  {% endjavascript %}
