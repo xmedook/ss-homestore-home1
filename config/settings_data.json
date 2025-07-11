@@ -1913,8 +1913,8 @@
         ],
         "settings": {
           "show_container": false,
-          "owl_navigation": true,
-          "owl_dot": false,
+          "owl_navigation": false,
+          "owl_dot": true,
           "owl_autoplay": true,
           "owl_loop": true,
           "owl_margin": "0",
