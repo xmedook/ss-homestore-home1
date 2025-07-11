@@ -1909,7 +1909,7 @@
           "1543827462106"
         ],
         "settings": {
-          "show_container": false,
+          "show_container": true,
           "owl_navigation": true,
           "owl_dot": false,
           "owl_autoplay": true,
