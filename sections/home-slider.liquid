@@ -41,7 +41,7 @@
                   {% endif %}
 
                   {% if block.settings.content_status == 'yes' %}
-                  <div class="heroCarousel-content {{ block.settings.text_alignment }}">
+                  <div class="heroCarousel-content {{ block.settings.text_alignment }}" style="max-width: {{ block.settings.content_width }}%;">
                      {% if block.settings.sub_title != blank %}
                       <h4 class="heroCarousel-subtitle">{{ block.settings.sub_title }}</h4>
                       {% endif %}
@@ -198,6 +198,16 @@
 {"value": "text-center", "label": "Center"},
 {"value": "text-right", "label": "Right"}
 ]
+},
+{
+"type": "range",
+"id": "content_width",
+"min": 20,
+"max": 100,
+"step": 5,
+"unit": "%",
+"label": "Content Width",
+"default": 100
 }
 
 ]
