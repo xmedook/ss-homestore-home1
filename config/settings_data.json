@@ -1909,7 +1909,7 @@
           "1543827462106"
         ],
         "settings": {
-          "show_container": true,
+          "show_container": false,
           "owl_navigation": true,
           "owl_dot": false,
           "owl_autoplay": true,
@@ -2097,7 +2097,7 @@
           "title1": "Nuevas piezas",
           "collection": "frontpage",
           "collection_description": "Nuevas piezas que respetan la historia, diseñadas para tu espacio.",
-          "image_size": "420x280",
+          "image_size": "350x420",
           "column1": "4",
           "column2": "3",
           "column3": "2",
