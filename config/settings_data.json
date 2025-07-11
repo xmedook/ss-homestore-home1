@@ -2014,6 +2014,7 @@
           "1544426838722-0": {
             "type": "logo_image",
             "settings": {
+              "image": "shopify://shop_images/logo-home-1.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2021,6 +2022,7 @@
           "1544426838722-1": {
             "type": "logo_image",
             "settings": {
+              "image": "shopify://shop_images/logo-home-2.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2028,6 +2030,7 @@
           "1544426838722-2": {
             "type": "logo_image",
             "settings": {
+              "image": "shopify://shop_images/logo-home-3.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2035,6 +2038,7 @@
           "1544426838722-3": {
             "type": "logo_image",
             "settings": {
+              "image": "shopify://shop_images/logo-home-4.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2042,6 +2046,7 @@
           "1544426924125": {
             "type": "logo_image",
             "settings": {
+              "image": "shopify://shop_images/logo-home-5.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2049,13 +2054,7 @@
           "1544427122437": {
             "type": "logo_image",
             "settings": {
-              "image_size": "170x110",
-              "link": "#"
-            }
-          },
-          "1544427144937": {
-            "type": "logo_image",
-            "settings": {
+              "image": "shopify://shop_images/logo-home-6.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2067,15 +2066,14 @@
           "1544426838722-2",
           "1544426838722-3",
           "1544426924125",
-          "1544427122437",
-          "1544427144937"
+          "1544427122437"
         ],
         "settings": {
           "show_container": false,
           "title": "",
-          "column1": "6",
-          "column2": "5",
-          "column3": "4",
+          "column1": "2",
+          "column2": "2",
+          "column3": "1",
           "column4": "3",
           "column5": "2",
           "owl_navigation": true,
