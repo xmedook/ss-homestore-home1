@@ -1890,7 +1890,11 @@
               "text_content": "Cada pieza Zolezzi es un homenaje al arte, la memoria y el oficio mexicano. Diseñada para espacios con alma.",
               "text_alignment": "text-right",
               "content_width": 50,
-              "content_position": "right"
+              "content_position": "right",
+              "overlay_enable": false,
+              "overlay_color": "#6d6d6d",
+              "overlay_opacity": 0.7,
+              "overlay_blend_mode": "multiply"
             }
           },
           "1543827462106": {
@@ -1906,7 +1910,11 @@
               "text_content": "Price only: <span>$123.00 </span>",
               "text_alignment": "text-center",
               "content_width": 100,
-              "content_position": "center"
+              "content_position": "center",
+              "overlay_enable": false,
+              "overlay_color": "#000000",
+              "overlay_opacity": 0.5,
+              "overlay_blend_mode": "normal"
             }
           }
         },
