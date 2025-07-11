@@ -41,7 +41,7 @@
                   {% endif %}
 
                   {% if block.settings.content_status == 'yes' %}
-                  <div class="heroCarousel-content">
+                  <div class="heroCarousel-content {{ block.settings.text_alignment }}">
                      {% if block.settings.sub_title != blank %}
                       <h4 class="heroCarousel-subtitle">{{ block.settings.sub_title }}</h4>
                       {% endif %}
@@ -187,6 +187,17 @@
 "id": "text_content",
 "label": "Text content",
 "default": "Price only: <span>$123.00 </span>"
+},
+{
+"type": "select",
+"id": "text_alignment",
+"label": "Text Alignment",
+"default": "text-center",
+"options": [
+{"value": "text-left", "label": "Left"},
+{"value": "text-center", "label": "Center"},
+{"value": "text-right", "label": "Right"}
+]
 }
 
 ]
