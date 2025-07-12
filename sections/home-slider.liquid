@@ -35,10 +35,10 @@
                   {%- assign banner_link = block.settings.banner_link -%}
                 <a href="{% if banner_link == blank %}#{% else %}{{ banner_link}}{% endif %}" class="heroCarousel-item">
                   {% if block.settings.image != blank %}
-                      <img class="collection-img img-responsive lazyload" data-sizes="auto" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="{{ shop.name }}" data-src="{{ block.settings.image | img_url:'master' }})"/>
+                      <img class="collection-img img-responsive" loading="lazy" width="1770" height="750" src="{{ block.settings.image | image_url: width: 1770 }}" alt="{{ shop.name }}"/>
                   {% else %}
-                      <img class="collection-img img-responsive" alt="{{ shop.name }}" src="//via.placeholder.com/1770X750" />
-                  {% endif %}
+                      <img class="collection-img img-responsive" loading="lazy" width="1770" height="750" alt="{{ shop.name }}" src="{{ 'placeholder.svg' | asset_url }}" />
+                   {% endif %}
 
                   {% if block.settings.overlay_enable %}
                   <div class="heroCarousel-overlay" style="background-color: {{ block.settings.overlay_color }}; opacity: {{ block.settings.overlay_opacity }}; mix-blend-mode: {{ block.settings.overlay_blend_mode }};"></div>
