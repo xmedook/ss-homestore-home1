@@ -2138,37 +2138,15 @@
           "owl_speed": "300"
         }
       },
-      "1544776715835": {
-        "type": "home-product-deals",
-        "settings": {
-          "show_container": false,
-          "title1": "Objeto del deseo, favorito del mes",
-          "list_collection": "baules-y-maletas-bar",
-          "image_size": "700x840",
-          "column1": "1",
-          "column2": "1",
-          "column3": "1",
-          "column4": "1",
-          "column5": "1",
-          "row": "1",
-          "limit": "1",
-          "owl_navigation": true,
-          "owl_dot": false,
-          "owl_margin": "30",
-          "owl_autoplay": false,
-          "owl_autoplay_speed": "10000",
-          "owl_speed": "300"
-        }
-      },
-      "featured_product_home_Dairq6": {
+      "featured_product_home_4RUUVP": {
         "type": "featured-product-home",
         "name": "Producto destacado con descripción",
         "settings": {
           "product": "maleta-bar",
-          "custom_title": "Nombre del producto destacado",
-          "custom_description": "",
-          "button_label": "Botón",
-          "button_link": "shopify://pages/contact"
+          "custom_title": "Objeto del deseo, favorito del mes",
+          "custom_description": "<p><strong>Una historia, un diseño, una pieza que habla por sí sola.</strong></p><p>Cada mes seleccionamos un artículo que representa el alma de Zolezzi:<br/>artesanía impecable, inspiración nostálgica y presencia atemporal.<br/>Una pieza que invita a imaginar, a recordar… y a quedarse.<br/><br/></p>",
+          "button_label": "Adquiérelo ahora",
+          "button_link": "shopify://products/maleta-bar"
         }
       }
     },
@@ -2177,8 +2155,7 @@
       "1543984389870",
       "1544776039094",
       "1544776211883",
-      "featured_product_home_Dairq6",
-      "1544776715835",
+      "featured_product_home_4RUUVP",
       "1544776491530",
       "1544426838722",
       "1543983923292"
