@@ -1,6 +1,173 @@
 {% schema %}
-  {
-    "name": "Section name",
-    "settings": []
-  }
+{
+  "name": "Featured Product Home",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Producto"
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Título personalizado",
+      "default": "Nombre del producto destacado"
+    },
+    {
+      "type": "textarea",
+      "id": "custom_description",
+      "label": "Descripción personalizada",
+      "default": "Agrega una descripción corta y atractiva sobre este producto o promoción."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Select Options"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace del botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Producto destacado con descripción",
+      "category": "Destacados"
+    }
+  ]
+}
 {% endschema %}
+
+<div class="featured-product-section">
+  <div class="featured-product-container">
+
+    {% assign product = all_products[section.settings.product] %}
+    
+    <!-- Imagen destacada -->
+    <div class="featured-product-image">
+      {% if product %}
+        <img src="{{ product.featured_image | img_url: '800x' }}" alt="{{ product.title }}">
+      {% else %}
+        <div style="background:#eee; height:400px; display:flex; align-items:center; justify-content:center;">Selecciona un producto</div>
+      {% endif %}
+    </div>
+
+    <!-- Contenido personalizado -->
+    <div class="featured-product-details">
+      <h2 class="product-title">{{ section.settings.custom_title }}</h2>
+
+      <div class="product-description">
+        {{ section.settings.custom_description }}
+      </div>
+
+      {% if product %}
+        <div class="product-pricing">
+          <span class="sale-price">{{ product.price | money }}</span>
+          {% if product.compare_at_price > product.price %}
+            <span class="original-price">{{ product.compare_at_price | money }}</span>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if section.settings.button_link != blank %}
+        <a href="{{ section.settings.button_link }}" class="cta-button">
+          {{ section.settings.button_label }}
+        </a>
+      {% endif %}
+
+      <!-- Temporizador simulado -->
+      <div class="countdown-timer">
+        <div class="timer-block"><span>00</span><p>DAYS</p></div>
+        <div class="timer-block"><span>00</span><p>HOURS</p></div>
+        <div class="timer-block"><span>00</span><p>MINS</p></div>
+        <div class="timer-block"><span>00</span><p>SECS</p></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.featured-product-section {
+  padding: 40px 0;
+}
+.featured-product-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.featured-product-image {
+  flex: 1 1 50%;
+}
+.featured-product-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.featured-product-details {
+  flex: 1 1 50%;
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  padding: 40px;
+  box-sizing: border-box;
+}
+.product-title {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.product-description {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.product-pricing {
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.sale-price {
+  color: #f4a900;
+  font-weight: bold;
+}
+.original-price {
+  color: #aaa;
+  text-decoration: line-through;
+  margin-left: 10px;
+}
+.cta-button {
+  background: #000;
+  color: white;
+  padding: 12px 30px;
+  text-transform: uppercase;
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 30px;
+  text-decoration: none;
+}
+.countdown-timer {
+  display: flex;
+  gap: 10px;
+}
+.timer-block {
+  background: white;
+  border: 1px solid #eee;
+  padding: 10px;
+  text-align: center;
+  width: 60px;
+}
+.timer-block span {
+  font-weight: bold;
+  font-size: 18px;
+}
+.timer-block p {
+  font-size: 10px;
+  margin: 0;
+  color: #666;
+}
+</style>
