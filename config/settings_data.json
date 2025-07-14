@@ -2145,7 +2145,7 @@
         "settings": {
           "show_container": false,
           "title1": "",
-          "list_collection": "accessories",
+          "list_collection": "baules-y-maletas-bar",
           "image_size": "700x840",
           "column1": "1",
           "column2": "1",
@@ -2153,7 +2153,7 @@
           "column4": "1",
           "column5": "1",
           "row": "1",
-          "limit": "8",
+          "limit": "1",
           "owl_navigation": true,
           "owl_dot": false,
           "owl_margin": "30",
