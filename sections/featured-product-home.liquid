@@ -1,45 +1,3 @@
-{% schema %}
-{
-  "name": "Featured Product Home",
-  "tag": "section",
-  "settings": [
-    {
-      "type": "product",
-      "id": "product",
-      "label": "Producto"
-    },
-    {
-      "type": "text",
-      "id": "custom_title",
-      "label": "Título personalizado",
-      "default": "Nombre del producto destacado"
-    },
-    {
-      "type": "richtext",
-      "id": "custom_description",
-      "label": "Descripción personalizada"
-    },
-    {
-      "type": "text",
-      "id": "button_label",
-      "label": "Texto del botón",
-      "default": "Select Options"
-    },
-    {
-      "type": "url",
-      "id": "button_link",
-      "label": "Enlace del botón"
-    }
-  ],
-  "presets": [
-    {
-      "name": "Producto destacado con descripción",
-      "category": "Destacados"
-    }
-  ]
-}
-{% endschema %}
-
 <div class="featured-product-section">
   <div class="featured-product-container">
 
@@ -71,11 +29,9 @@
         </div>
       {% endif %}
 
-      {% if section.settings.button_link != blank %}
-        <a href="{{ section.settings.button_link }}" class="cta-button">
-          {{ section.settings.button_label }}
-        </a>
-      {% endif %}
+      <a href="{{ section.settings.button_link | default: '#' }}" class="cta-button">
+        {{ section.settings.button_label | default: 'Ver producto' }}
+      </a>
 
       <!-- Temporizador simulado -->
       <div class="countdown-timer">
@@ -119,7 +75,7 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
 }
 .product-title {
   font-size: 22px;
@@ -188,3 +144,45 @@
   }
 }
 </style>
+
+{% schema %}
+{
+  "name": "Featured Product Home",
+  "tag": "section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Producto"
+    },
+    {
+      "type": "text",
+      "id": "custom_title",
+      "label": "Título personalizado",
+      "default": "Nombre del producto destacado"
+    },
+    {
+      "type": "richtext",
+      "id": "custom_description",
+      "label": "Descripción personalizada"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Texto del botón",
+      "default": "Select Options"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Enlace personalizado del botón"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Producto destacado con descripción",
+      "category": "Destacados"
+    }
+  ]
+}
+{% endschema %}

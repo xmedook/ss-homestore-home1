@@ -2159,6 +2159,17 @@
           "owl_autoplay_speed": "10000",
           "owl_speed": "300"
         }
+      },
+      "featured_product_home_Dairq6": {
+        "type": "featured-product-home",
+        "name": "Producto destacado con descripción",
+        "settings": {
+          "product": "maleta-bar",
+          "custom_title": "Nombre del producto destacado",
+          "custom_description": "",
+          "button_label": "Botón",
+          "button_link": "shopify://pages/contact"
+        }
       }
     },
     "content_for_index": [
@@ -2166,6 +2177,7 @@
       "1543984389870",
       "1544776039094",
       "1544776211883",
+      "featured_product_home_Dairq6",
       "1544776715835",
       "1544776491530",
       "1544426838722",
