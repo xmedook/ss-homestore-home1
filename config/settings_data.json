@@ -2081,19 +2081,6 @@
           "owl_speed": "300"
         }
       },
-      "1544776039094": {
-        "type": "home-bannerct",
-        "settings": {
-          "image1": "shopify://shop_images/Siilas.jpg",
-          "link1": "shopify://collections/sillas-y-bancos",
-          "image2": "shopify://shop_images/Diseno_sin_titulo_83_1.jpg",
-          "link2": "shopify://collections/baules-y-maletas-bar",
-          "image3": "shopify://shop_images/Diseno_sin_titulo_84_1.jpg",
-          "link23": "shopify://collections/escritorios-y-mesas",
-          "image4": "shopify://shop_images/home-4_6c78672d-62b5-494e-82cf-55efc870da36.png",
-          "link4": "shopify://collections/cabeceras-y-buros"
-        }
-      },
       "1544776211883": {
         "type": "homepage-product-carousel",
         "settings": {
@@ -2153,6 +2140,55 @@
       },
       "seccion_imagenes_colecciones_qKn4Y4": {
         "type": "seccion-imagenes-colecciones",
+        "blocks": {
+          "image_block_H3iA6t": {
+            "type": "image_block",
+            "settings": {
+              "use_collection": true,
+              "collection": "sillas-y-bancos",
+              "title": "",
+              "cta_text": "",
+              "cta_link": ""
+            }
+          },
+          "image_block_pxjHLJ": {
+            "type": "image_block",
+            "settings": {
+              "use_collection": true,
+              "collection": "baules-y-maletas-bar",
+              "title": "",
+              "cta_text": "Descúbrelos ahora",
+              "cta_link": "shopify://collections/baules-y-maletas-bar"
+            }
+          },
+          "image_block_zHhaFf": {
+            "type": "image_block",
+            "settings": {
+              "use_collection": true,
+              "collection": "escritorios-y-mesas",
+              "title": "",
+              "cta_text": "",
+              "cta_link": ""
+            }
+          },
+          "image_block_KNkJQ6": {
+            "type": "image_block",
+            "settings": {
+              "use_collection": true,
+              "collection": "cabeceras-y-buros",
+              "title": "",
+              "cta_text": "",
+              "cta_link": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_block_H3iA6t",
+          "image_block_pxjHLJ",
+          "image_block_zHhaFf",
+          "image_block_KNkJQ6"
+        ],
+        "custom_css": [],
         "name": "Sección imágenes con hover CTA",
         "settings": {}
       }
@@ -2161,7 +2197,6 @@
       "1543822110739",
       "1543984389870",
       "seccion_imagenes_colecciones_qKn4Y4",
-      "1544776039094",
       "1544776211883",
       "featured_product_home_4RUUVP",
       "1544776491530",
