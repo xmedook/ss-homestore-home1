@@ -2159,17 +2159,6 @@
           "owl_autoplay_speed": "10000",
           "owl_speed": "300"
         }
-      },
-      "featured_product_home_JYBA3z": {
-        "type": "featured-product-home",
-        "name": "Producto destacado con descripción",
-        "settings": {
-          "product": "maleta-bar",
-          "custom_title": "Objeto del deseo, favorito del mes",
-          "custom_description": "Una historia, un diseño, una pieza que habla por sí sola.\nCada mes seleccionamos un artículo que representa el alma de Zolezzi:\nartesanía impecable, inspiración nostálgica y presencia atemporal.\nUna pieza que invita a imaginar, a recordar… y a quedarse.",
-          "button_label": "Select Options",
-          "button_link": ""
-        }
       }
     },
     "content_for_index": [
@@ -2177,7 +2166,6 @@
       "1543984389870",
       "1544776039094",
       "1544776211883",
-      "featured_product_home_JYBA3z",
       "1544776715835",
       "1544776491530",
       "1544426838722",
