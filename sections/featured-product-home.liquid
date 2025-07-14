@@ -20,7 +20,7 @@
         {{ section.settings.custom_description }}
       </div>
 
-      {% if product %}
+      {% if product and section.settings.show_price %}
         <div class="product-pricing">
           <span class="sale-price">{{ product.price | money }}</span>
           {% if product.compare_at_price > product.price %}
@@ -33,13 +33,14 @@
         {{ section.settings.button_label | default: 'Ver producto' }}
       </a>
 
-      <!-- Temporizador simulado -->
-      <div class="countdown-timer">
-        <div class="timer-block"><span>00</span><p>DAYS</p></div>
-        <div class="timer-block"><span>00</span><p>HOURS</p></div>
-        <div class="timer-block"><span>00</span><p>MINS</p></div>
-        <div class="timer-block"><span>00</span><p>SECS</p></div>
-      </div>
+      {% if section.settings.show_timer %}
+        <div class="countdown-timer">
+          <div class="timer-block"><span>00</span><p>DAYS</p></div>
+          <div class="timer-block"><span>00</span><p>HOURS</p></div>
+          <div class="timer-block"><span>00</span><p>MINS</p></div>
+          <div class="timer-block"><span>00</span><p>SECS</p></div>
+        </div>
+      {% endif %}
     </div>
   </div>
 </div>
@@ -176,6 +177,18 @@
       "type": "url",
       "id": "button_link",
       "label": "Enlace personalizado del botón"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_price",
+      "label": "Mostrar precio",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_timer",
+      "label": "Mostrar temporizador",
+      "default": true
     }
   ],
   "presets": [
