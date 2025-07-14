@@ -2122,7 +2122,7 @@
         "type": "homepage-product-carousel",
         "settings": {
           "title1": "Featured Products",
-          "collection": "bathroom",
+          "collection": "baules-y-maletas-bar",
           "collection_description": "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed aci erat dales vitakse\ndalesnon estin vitae egestas enim in pretium nulla.",
           "image_size": "350x420",
           "column1": "4",
@@ -2131,7 +2131,7 @@
           "column4": "2",
           "column5": "1",
           "row": "1",
-          "limit": "8",
+          "limit": "4",
           "owl_navigation": true,
           "show_dot": true,
           "owl_margin": "30",
