@@ -1,6 +1,181 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{% stylesheet %}
+.custom-image-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 10px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.custom-image-grid__item {
+  position: relative;
+  overflow: hidden;
+  height: 300px;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.custom-image-grid__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.custom-image-grid__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(139, 0, 0, 0.7); /* rojo oscuro */
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  text-align: center;
+  transition: opacity 0.3s ease;
+  padding: 20px;
+}
+
+.custom-image-grid__item:hover .custom-image-grid__overlay {
+  opacity: 1;
+}
+
+.custom-image-grid__item:hover img {
+  transform: scale(1.05);
+}
+
+.custom-image-grid__title {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.custom-image-grid__button {
+  background-color: white;
+  color: #8b0000;
+  padding: 10px 20px;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.custom-image-grid__button:hover {
+  background-color: #ffe5e5;
+}
+
+@media (max-width: 768px) {
+  .custom-image-grid {
+    grid-template-columns: 1fr;
   }
+}
+{% endstylesheet %}
+
+{% if section.blocks.size > 0 %}
+  <div class="custom-image-grid">
+    {% for block in section.blocks %}
+      {% assign position = forloop.index0 %}
+      {% assign span = 1 %}
+      {% if position == 0 %}
+        {% assign span = 1 %}
+      {% elsif position == 1 %}
+        {% assign span = 2 %}
+      {% elsif position == 2 %}
+        {% assign span = 2 %}
+      {% elsif position == 3 %}
+        {% assign span = 1 %}
+      {% endif %}
+
+      <div class="custom-image-grid__item" style="grid-column: span {{ span }};">
+        {% if block.settings.use_collection and block.settings.collection != blank %}
+          {% assign collection = collections[block.settings.collection] %}
+          {% if collection and collection.image %}
+            <img src="{{ collection.image | img_url: '800x' }}" alt="{{ collection.title }}">
+          {% else %}
+            <span>Selecciona una colección con imagen</span>
+          {% endif %}
+          <div class="custom-image-grid__overlay">
+            <div class="custom-image-grid__title">{{ collection.title }}</div>
+            {% if block.settings.cta_text != blank %}
+              <a href="{{ collection.url }}" class="custom-image-grid__button">
+                {{ block.settings.cta_text }}
+              </a>
+            {% endif %}
+          </div>
+        {% elsif block.settings.image != blank %}
+          <img src="{{ block.settings.image | img_url: '800x' }}" alt="{{ block.settings.title }}">
+          <div class="custom-image-grid__overlay">
+            <div class="custom-image-grid__title">{{ block.settings.title }}</div>
+            {% if block.settings.cta_text != blank %}
+              <a href="{{ block.settings.cta_link }}" class="custom-image-grid__button">
+                {{ block.settings.cta_text }}
+              </a>
+            {% endif %}
+          </div>
+        {% else %}
+          <span>Configura una imagen o colección</span>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+{% else %}
+  <p style="text-align:center; padding: 50px;">Agrega bloques para que esta sección funcione correctamente.</p>
+{% endif %}
+
+{% schema %}
+{
+  "name": "Grid de imágenes con CTA",
+  "max_blocks": 4,
+  "settings": [],
+  "blocks": [
+    {
+      "type": "image_block",
+      "name": "Bloque de imagen",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "use_collection",
+          "label": "Usar colección"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Seleccionar colección"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Imagen personalizada"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Título personalizado"
+        },
+        {
+          "type": "text",
+          "id": "cta_text",
+          "label": "Texto del botón CTA"
+        },
+        {
+          "type": "url",
+          "id": "cta_link",
+          "label": "Link del botón CTA"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sección imágenes con hover CTA",
+      "category": "Imagen"
+    }
+  ]
+}
 {% endschema %}
