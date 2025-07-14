@@ -2148,7 +2148,9 @@
               "collection": "sillas-y-bancos",
               "title": "",
               "cta_text": "",
-              "cta_link": ""
+              "cta_link": "",
+              "horizontal_alignment": "center",
+              "vertical_alignment": "center"
             }
           },
           "image_block_pxjHLJ": {
@@ -2158,7 +2160,9 @@
               "collection": "baules-y-maletas-bar",
               "title": "",
               "cta_text": "Descúbrelos ahora",
-              "cta_link": "shopify://collections/baules-y-maletas-bar"
+              "cta_link": "shopify://collections/baules-y-maletas-bar",
+              "horizontal_alignment": "right",
+              "vertical_alignment": "top"
             }
           },
           "image_block_zHhaFf": {
@@ -2168,7 +2172,9 @@
               "collection": "escritorios-y-mesas",
               "title": "",
               "cta_text": "",
-              "cta_link": ""
+              "cta_link": "",
+              "horizontal_alignment": "right",
+              "vertical_alignment": "top"
             }
           },
           "image_block_KNkJQ6": {
@@ -2178,7 +2184,9 @@
               "collection": "cabeceras-y-buros",
               "title": "",
               "cta_text": "",
-              "cta_link": ""
+              "cta_link": "",
+              "horizontal_alignment": "center",
+              "vertical_alignment": "center"
             }
           }
         },
