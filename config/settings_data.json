@@ -816,9 +816,9 @@
           "position_top": "100",
           "show_category": true,
           "show_cart": true,
-          "show_account": true,
-          "show_search": true,
-          "show_recent_product": true,
+          "show_account": false,
+          "show_search": false,
+          "show_recent_product": false,
           "limit_product": "6",
           "show_backtop": false
         }
