@@ -42,8 +42,24 @@
 
     
     <!-- CUSTOM FONTS - Koode R. -->
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    @font-face {
+      font-family: 'Playfair Display';
+      src: url('{{ "PlayfairDisplay-Regular.woff2" | asset_url }}') format('woff2'),
+           url('{{ "PlayfairDisplay-Regular.woff" | asset_url }}') format('woff');
+      font-weight: 400;
+      font-style: normal;
+      font-display: swap;
+    }
     
+    @font-face {
+      font-family: 'Playfair Display';
+      src: url('{{ "PlayfairDisplay-Bold.woff2" | asset_url }}') format('woff2'),
+           url('{{ "PlayfairDisplay-Bold.woff" | asset_url }}') format('woff');
+      font-weight: 700;
+      font-style: normal;
+      font-display: swap;
+    }
     <!-- END CUSTOM FONTS - Koode R. -->
 
   </head>
