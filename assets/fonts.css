@@ -1,7 +1,7 @@
 @font-face {
       font-family: 'Playfair Display';
-      src: url('{{ "PlayfairDisplay-Regular.woff2" | asset_url }}') format('woff2'),
-           url('{{ "PlayfairDisplay-Regular.woff" | asset_url }}') format('woff');
+      src: url('{{ "PlayfairDisplay-Regular.woff2" | asset_url }}') format('ttf'),
+           url('{{ "PlayfairDisplay-Regular.woff" | asset_url }}') format('ttf');
       font-weight: 400;
       font-style: normal;
       font-display: swap;
@@ -9,8 +9,8 @@
     
 @font-face {
   font-family: 'Playfair Display';
-  src: url('{{ "PlayfairDisplay-Bold.woff2" | asset_url }}') format('woff2'),
-       url('{{ "PlayfairDisplay-Bold.woff" | asset_url }}') format('woff');
+  src: url('{{ "PlayfairDisplay-Bold.woff2" | asset_url }}') format('ttf'),
+       url('{{ "PlayfairDisplay-Bold.woff" | asset_url }}') format('ttf');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
