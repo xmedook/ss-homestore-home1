@@ -9,7 +9,7 @@
  */
 {
   "current": {
-    "favicon": "",
+    "favicon": "shopify://shop_images/favicon.png",
     "logo_img_nav": true,
     "logo_max_width_nav": "161",
     "effect": "effect_10",
