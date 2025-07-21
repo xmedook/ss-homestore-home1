@@ -1921,7 +1921,8 @@
           "1543827462106"
         ],
         "custom_css": [
-          ".heroCarousel-slider .owl-carousel .owl-item img {width: 100%;}"
+          ".heroCarousel-slider .owl-carousel .owl-item img {width: 100%;}",
+          "h1 {text-transform: capitalize;}"
         ],
         "settings": {
           "show_container": false,
