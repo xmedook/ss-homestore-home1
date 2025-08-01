@@ -2012,7 +2012,7 @@
           "1544426838722-0": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify://shop_images/logo-home-1.png",
+              "image": "shopify://shop_images/1.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2020,7 +2020,7 @@
           "1544426838722-1": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify://shop_images/logo-home-2.png",
+              "image": "shopify://shop_images/2.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2028,7 +2028,7 @@
           "1544426838722-2": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify://shop_images/logo-home-3.png",
+              "image": "shopify://shop_images/3.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2036,7 +2036,7 @@
           "1544426838722-3": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify://shop_images/logo-home-4.png",
+              "image": "shopify://shop_images/4.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2044,15 +2044,7 @@
           "1544426924125": {
             "type": "logo_image",
             "settings": {
-              "image": "shopify://shop_images/logo-home-5.png",
-              "image_size": "170x110",
-              "link": "#"
-            }
-          },
-          "1544427122437": {
-            "type": "logo_image",
-            "settings": {
-              "image": "shopify://shop_images/logo-home-6.png",
+              "image": "shopify://shop_images/5.png",
               "image_size": "170x110",
               "link": "#"
             }
@@ -2063,10 +2055,8 @@
           "1544426838722-1",
           "1544426838722-2",
           "1544426838722-3",
-          "1544426924125",
-          "1544427122437"
+          "1544426924125"
         ],
-        "disabled": true,
         "settings": {
           "show_container": false,
           "title": "",
