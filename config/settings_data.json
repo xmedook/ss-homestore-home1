@@ -1942,7 +1942,7 @@
         "custom_css": [
           ".heroCarousel-slider .owl-carousel .owl-item img {width: 100%;}",
           "h1 {text-transform: capitalize;}",
-          ".heroCarousel-overlay {background-color: rgba(0, 0, 0, 0.1); /* Negro con 30% de opacidad */ position: absolute; top: 0; left: 0; width: 100%; height: 100%;}"
+          ".heroCarousel-overlay {background-color: rgba(0, 0, 0, 0.9); /* Negro con 30% de opacidad */ position: absolute; top: 0; left: 0; width: 100%; height: 100%;}"
         ],
         "settings": {
           "show_container": false,
