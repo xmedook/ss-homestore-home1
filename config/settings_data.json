@@ -2074,6 +2074,9 @@
       },
       "1544776211883": {
         "type": "homepage-product-carousel",
+        "custom_css": [
+          ".container{padding: 100px;}"
+        ],
         "settings": {
           "title1": "Nuevas piezas",
           "collection": "baules-y-maletas-bar",
