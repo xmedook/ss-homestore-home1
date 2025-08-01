@@ -2130,7 +2130,7 @@
         "type": "featured-product-home",
         "name": "Producto destacado con descripción",
         "settings": {
-          "product": "maleta-bar",
+          "product": "baul-pie-de-cama-orient-express",
           "custom_title": "Objeto del deseo, favorito del mes",
           "custom_description": "<p><strong>Una historia, un diseño, una pieza que habla por sí sola.</strong></p><p>Cada mes seleccionamos un artículo que representa el alma de Zolezzi:<br/>artesanía impecable, inspiración nostálgica y presencia atemporal.<br/>Una pieza que invita a imaginar, a recordar… y a quedarse.<br/><br/></p>",
           "button_label": "Adquiérelo ahora",
