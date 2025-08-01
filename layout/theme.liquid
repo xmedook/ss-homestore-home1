@@ -46,6 +46,11 @@
     {{ 'fonts.css' | asset_url | stylesheet_tag }}
     
     <!-- END CUSTOM FONTS - Koode R. -->
+    <style>
+      .block.sidebar-banner.spaceBlock.banners {
+          display: none;
+        }
+    </style>
 
   </head>
   <body class="template-{{ template | split: '.' | first }}">
