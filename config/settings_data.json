@@ -1880,7 +1880,7 @@
             "type": "slider_list",
             "settings": {
               "show_status": "yes",
-              "image": "shopify://shop_images/Banner1.jpg",
+              "image": "shopify://shop_images/Banner1_dbc7134d-5278-49ac-aff7-b7314beb3a58.jpg",
               "banner_link": "#",
               "content_status": "yes",
               "sub_title": "",
@@ -1899,7 +1899,7 @@
             "type": "slider_list",
             "settings": {
               "show_status": "yes",
-              "image": "shopify://shop_images/Banner2.jpg",
+              "image": "shopify://shop_images/Banner2_4e8f4866-3549-4ee3-9130-1f36a4483e94.jpg",
               "banner_link": "#",
               "content_status": "no",
               "sub_title": "New Arrivals 2019",
