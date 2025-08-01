@@ -362,7 +362,7 @@
       "header": {
         "type": "header",
         "custom_css": [
-          ".placeholder-svg{display: none !important;}"
+          ".block.sidebar-banner.spaceBlock.banners {display: none;}"
         ],
         "settings": {}
       },
