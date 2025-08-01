@@ -1890,9 +1890,9 @@
               "content_width": 50,
               "content_position": "right",
               "overlay_enable": true,
-              "overlay_color": "#222222",
-              "overlay_opacity": 1,
-              "overlay_blend_mode": "normal"
+              "overlay_color": "#000000",
+              "overlay_opacity": 0.5,
+              "overlay_blend_mode": "darken"
             }
           },
           "1543827462106": {
