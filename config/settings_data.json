@@ -361,6 +361,9 @@
     "sections": {
       "header": {
         "type": "header",
+        "custom_css": [
+          ".placeholder-svg{display: none !important;}"
+        ],
         "settings": {}
       },
       "footer": {
