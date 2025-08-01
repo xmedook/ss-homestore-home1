@@ -1913,11 +1913,31 @@
               "overlay_opacity": 0.5,
               "overlay_blend_mode": "normal"
             }
+          },
+          "slider_list_GN7kT3": {
+            "type": "slider_list",
+            "settings": {
+              "show_status": "yes",
+              "image": "shopify://shop_images/Banner3_05077d61-3c28-484a-b6df-bae963ed703d.jpg",
+              "banner_link": "#",
+              "content_status": "no",
+              "sub_title": "New Arrivals 2019",
+              "heading": "Exciting bundle get 30% off",
+              "text_content": "Price only: <span>$123.00 </span>",
+              "text_alignment": "text-center",
+              "content_width": 100,
+              "content_position": "center",
+              "overlay_enable": false,
+              "overlay_color": "#000000",
+              "overlay_opacity": 0.5,
+              "overlay_blend_mode": "normal"
+            }
           }
         },
         "block_order": [
           "1543822110739-0",
-          "1543827462106"
+          "1543827462106",
+          "slider_list_GN7kT3"
         ],
         "custom_css": [
           ".heroCarousel-slider .owl-carousel .owl-item img {width: 100%;}",
@@ -2075,7 +2095,7 @@
       "1544776211883": {
         "type": "homepage-product-carousel",
         "custom_css": [
-          ".container{padding: 100px;}"
+          ".container {padding: 100px;}"
         ],
         "settings": {
           "title1": "Nuevas piezas",
