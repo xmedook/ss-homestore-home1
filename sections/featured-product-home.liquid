@@ -49,27 +49,40 @@
 .featured-product-section {
   padding: 40px 0;
 }
+
 .featured-product-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 40px;
-  align-items: stretch;
   max-width: 1200px;
   margin: 0 auto;
 }
-.featured-product-image {
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
+/* Ambos contenedores al 50% en desktop/tablet */
+.featured-product-image,
+.featured-product-details {
+  flex: 1 1 50%;
+  box-sizing: border-box;
 }
+
+/* Imagen con efecto cover */
+.featured-product-image {
+  position: relative;
+  height: 100%;
+  min-height: 400px;
+  overflow: hidden;
+}
+
 .featured-product-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
   display: block;
 }
+
 .featured-product-details {
-  
   background: #f9f9f9;
   border: 15px solid #e0e0e0;
   padding: 40px;
@@ -78,12 +91,14 @@
   flex-direction: column;
   justify-content: center;
 }
+
 .product-title {
   font-size: 22px;
   font-weight: 600;
   margin-bottom: 16px;
   text-align: center;
 }
+
 .product-description {
   font-size: 14px;
   color: #666;
@@ -91,22 +106,27 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
 .product-description * {
   margin-bottom: 1rem;
 }
+
 .product-pricing {
   font-size: 20px;
   margin-bottom: 20px;
 }
+
 .sale-price {
   color: #f4a900;
   font-weight: bold;
 }
+
 .original-price {
   color: #aaa;
   text-decoration: line-through;
   margin-left: 10px;
 }
+
 .cta-button {
   background: #000;
   color: white;
@@ -117,10 +137,12 @@
   margin-bottom: 30px;
   text-decoration: none;
 }
+
 .countdown-timer {
   display: flex;
   gap: 10px;
 }
+
 .timer-block {
   background: white;
   border: 1px solid #eee;
@@ -128,22 +150,39 @@
   text-align: center;
   width: 60px;
 }
+
 .timer-block span {
   font-weight: bold;
   font-size: 18px;
 }
+
 .timer-block p {
   font-size: 10px;
   margin: 0;
   color: #666;
 }
+
+/* Responsivo para móvil */
 @media (max-width: 768px) {
   .featured-product-container {
     flex-direction: column;
   }
+
   .featured-product-image,
   .featured-product-details {
     flex: 1 1 100%;
+    min-height: auto;
+  }
+
+  .featured-product-image {
+    height: auto;
+    min-height: 300px;
+  }
+
+  .featured-product-image img {
+    position: relative;
+    height: auto;
+    object-fit: contain;
   }
 }
 </style>
