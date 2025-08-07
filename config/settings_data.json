@@ -1928,7 +1928,7 @@
               "heading": "Muebles Con Alma Propia.",
               "text_content": "Inspirados en la nostalgia, creados con detalle, pensados para trascender en tu espacio.",
               "text_alignment": "text-right",
-              "content_width": 100,
+              "content_width": 50,
               "content_position": "right",
               "overlay_enable": true,
               "overlay_color": "#000000",
@@ -2083,7 +2083,7 @@
         ],
         "settings": {
           "show_container": false,
-          "title": "",
+          "title": "Presencia en Espacios de Prestigio",
           "column1": "5",
           "column2": "6",
           "column3": "5",
