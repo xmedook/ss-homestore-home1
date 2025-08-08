@@ -86,45 +86,6 @@
     </div>
   </div>
 
-  <style>
-    /* Ajustes del slider en móviles */
-@media screen and (max-width: 767px) {
-  .heroCarousel--item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .heroCarousel-item img.collection-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ajuste de la imagen para que no se deforme */
-  }
-
-  .heroCarousel-content {
-    max-width: 90% !important; /* Reducimos ancho del contenido en móviles */
-    padding: 10px;
-    text-align: center !important;
-    position: relative !important;
-    left: auto !important;
-    right: auto !important;
-    transform: none !important;
-  }
-
-  .heroCarousel-title {
-    font-size: 1.4rem;
-    line-height: 1.2;
-  }
-
-  .heroCarousel-subtitle {
-    font-size: 1rem;
-  }
-
-  .heroCarousel-description {
-    font-size: 0.9rem;
-  }
-}
-  </style>
 
   {% endif %}
   {% schema %}
@@ -354,6 +315,44 @@
   position:relative;
   padding:0;
   }
+
+      /* Ajustes del slider en móviles */
+@media screen and (max-width: 767px) {
+  .heroCarousel--item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .heroCarousel-item img.collection-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* Ajuste de la imagen para que no se deforme */
+  }
+
+  .heroCarousel-content {
+    max-width: 90% !important; /* Reducimos ancho del contenido en móviles */
+    padding: 10px;
+    text-align: center !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    transform: none !important;
+  }
+
+  .heroCarousel-title {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .heroCarousel-subtitle {
+    font-size: 1rem;
+  }
+
+  .heroCarousel-description {
+    font-size: 0.9rem;
+  }
+}
   {% endstylesheet %}
 
   {% javascript %}
