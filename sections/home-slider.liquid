@@ -316,46 +316,91 @@
   padding:0;
   }
 
-      /* Ajustes del slider en móviles */
+  /**/
+  /* MÓVIL: slider 75vh, imagen cover centrada, texto centrado V+H */
 @media screen and (max-width: 767px) {
-  .heroCarousel--item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+
+  /* Forzar altura del slide a 75vh en toda la cadena owl */
+  .coll-slider .owl-carousel,
+  .coll-slider .owl-stage-outer,
+  .coll-slider .owl-stage,
+  .coll-slider .owl-item,
+  .heroCarousel--item,
+  .heroCarousel-item {
+    height: 75vh !important;
+    min-height: 75vh !important;
   }
 
+  /* Hacer que el enlace ocupe todo el slide y sea relativo (para posicionar overlay y contenido) */
+  .heroCarousel-item {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: 100% !important;
+  }
+
+  /* Imagen: ocupa todo el slide, cover y centrada */
   .heroCarousel-item img.collection-img {
-    width: 100%;
-    height: auto;
-    object-fit: cover; /* Ajuste de la imagen para que no se deforme */
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center center !important;
+    display: block;
   }
 
+  /* Overlay: ocupa todo el slide, debajo del contenido */
+  .heroCarousel-overlay {
+    position: absolute !important;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    /* Si quieres forzar un oscurecimiento extra en móvil descomenta la línea siguiente:
+    background-color: rgba(0,0,0,0.35) !important;
+    */
+  }
+
+  /* Contenido: absolutamente centrado tanto vertical como horizontal */
   .heroCarousel-content {
-    max-width: 90% !important; /* Reducimos ancho del contenido en móviles */
-    padding: 10px;
+    position: absolute !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2 !important;
+    width: 90% !important;
+    max-width: 90% !important;
     text-align: center !important;
-    position: relative !important;
-    left: auto !important;
+    padding: 0 12px !important;
+    box-sizing: border-box !important;
+    /* Sobrescribimos inline styles de posición/ancho que vienen desde Liquid */
+    left: 50% !important;
     right: auto !important;
-    transform: none !important;
   }
 
+  /* Ajustes tipográficos para móvil */
   .heroCarousel-title {
     font-size: 1.4rem;
-    line-height: 1.2;
+    line-height: 1.15;
+    margin: 0.2em 0;
   }
-
   .heroCarousel-subtitle {
     font-size: 1rem;
+    margin: 0 0 0.25em 0;
+  }
+  .heroCarousel-description {
+    font-size: 0.95rem;
   }
 
-  .heroCarousel-description {
-    font-size: 0.9rem;
+  /* Evitar que los controles de owl queden debajo del contenido */
+  .coll-slider .owl-nav, 
+  .coll-slider .owl-dots {
+    z-index: 3;
   }
-  img.collection-img.img-responsive {
-    height: 80vh;
+
+  /* Asegurar que el enlace mantenga estilo neutro */
+  .heroCarousel-item a,
+  .heroCarousel-item { color: inherit; text-decoration: none; }
 }
-}
+  /**/
   {% endstylesheet %}
 
   {% javascript %}
